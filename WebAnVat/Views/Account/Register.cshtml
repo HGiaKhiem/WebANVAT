@@ -1,0 +1,57 @@
+﻿@using WebAnVat.Models
+@model NguoiMua
+
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/asset/css/Register.css" />
+</head>
+<body>
+    <div class="container-fluid">
+        <form method="post" class="col-12 col-sm-8 col-md-6 col-lg-4 mx-auto p-4" action="@Url.Action("Register", "Account")">
+            <h4 class="text-center">Đăng ký</h4>
+            <div class="mb-3">
+                <label for="InputName" class="form-label">Tên</label>
+                <input type="text" name="Ten" class="form-control" id="InputName" required />
+            </div>
+            <div class="mb-3">
+                <label for="InputEmail" class="form-label">Email</label>
+                <input type="email" name="Email" class="form-control" id="InputEmail" required />
+            </div>
+            <div class="mb-3">
+                <label for="InputPhone" class="form-label">Số điện thoại</label>
+                <input type="text" name="Sdt" class="form-control" id="InputPhone" required />
+            </div>
+            <div class="mb-3">
+                <label for="InputPassword" class="form-label">Mật khẩu</label>
+                <input type="password" name="MatKhau" class="form-control" id="InputPassword" required />
+            </div>
+            <div class="mb-3">
+                <label for="InputConfirmPassword" class="form-label">Xác nhận mật khẩu</label>
+                <input type="password" name="confirmMatKhau" class="form-control" id="InputConfirmPassword" required />
+            </div>
+
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @ViewBag.Message
+                </div>
+            }
+
+            <button type="submit" class="btn btn-primary w-100">Đăng ký</button>
+            <div class="mt-3 text-center">
+                <a class="mt-4 d-lg-block" href="@Url.Action("Login", "Account")">Đã có tài khoản? Đăng nhập ngay</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9d2c2453332e4b25ad63be3e4d2341ef" Name="Diagram1">
+        <EntityTypeShape EntityType="BanDoAnVatVer2Model.CTMA_Size" Width="1.5" PointX="5.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanDoAnVatVer2Model.CTMA_Topp" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanDoAnVatVer2Model.ChiTietDonHang" Width="1.5" PointX="8.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanDoAnVatVer2Model.ChiTietSize" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanDoAnVatVer2Model.ChiTietTopping" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanDoAnVatVer2Model.DonHang" Width="1.5" PointX="6" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanDoAnVatVer2Model.GioHang" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanDoAnVatVer2Model.LoaiMonAn" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanDoAnVatVer2Model.Mon" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanDoAnVatVer2Model.NguoiMua" Width="1.5" PointX="3.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanDoAnVatVer2Model.PTThanhToan" Width="1.5" PointX="3.75" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanDoAnVatVer2Model.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="BanDoAnVatVer2Model.FK_CTMA_Size_ChiTietSize" ManuallyRouted="false" />
+        <AssociationConnector Association="BanDoAnVatVer2Model.FK_CTMA_Size_ID_Mon" ManuallyRouted="false" />
+        <AssociationConnector Association="BanDoAnVatVer2Model.FK_CTMA_Topp_ChiTietTopping" ManuallyRouted="false" />
+        <AssociationConnector Association="BanDoAnVatVer2Model.FK_CTMA_Topp_ID_Mon" ManuallyRouted="false" />
+        <AssociationConnector Association="BanDoAnVatVer2Model.FK_CTDH_Don" ManuallyRouted="false" />
+        <AssociationConnector Association="BanDoAnVatVer2Model.FK_CTDH_Mon" ManuallyRouted="false" />
+        <AssociationConnector Association="BanDoAnVatVer2Model.FK_DH_NgMua" ManuallyRouted="false" />
+        <AssociationConnector Association="BanDoAnVatVer2Model.FK_DH_ThanhToan" ManuallyRouted="false" />
+        <AssociationConnector Association="BanDoAnVatVer2Model.FK_GioHang_Mon" ManuallyRouted="false" />
+        <AssociationConnector Association="BanDoAnVatVer2Model.FK_GioHang_NguoiMua" ManuallyRouted="false" />
+        <AssociationConnector Association="BanDoAnVatVer2Model.FK_Mon_LoaiMon" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

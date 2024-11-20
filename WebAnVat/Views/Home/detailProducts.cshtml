@@ -1,0 +1,255 @@
+﻿@using WebAnVat.Models
+@model Mon
+@{
+    ViewBag.Title = "detailProducts";
+    Layout = "~/Views/shared/_primaryLayout.cshtml";
+}
+
+<div class="body container">
+    <div class="body__location">
+        <a href="@Url.Action("Index","Home")" class="body__link">Trang chủ </a>
+        <span>/</span>
+        <div class="body__text">Sản phẩm</div>
+    </div>
+
+    <div class="body__wrapDetail">
+        <div class="wrapDetail__boxLeft">
+            <div class="wrapDetail__boxImg">
+                <img src="~/asset/img/Products/@Model.HinhAnh" alt="">
+            </div>
+        </div>
+
+        <div class="wrapDetail__boxRight">
+            <div class="wrapDetail__wrapContent">
+                <div class="wrapDetail__name">@Model.TenMon</div>
+                <div class="wrapDetail__wrapID"><span>ID:</span>@Model.ID_Mon</div>
+                <div class="wrapDetail__wrapPriceQuantity">
+                    <div class="wrapDetail__price">@Model.GiaBan</div>
+                    <div class="counter" id="counter1">
+                        <div class="btnCount btnMinus">
+                            <i class="fa-solid fa-minus"></i>
+                        </div>
+                        <div class="number">0</div>
+                        <div class="btnCount btnPlus">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrapDetail__wrapSize">
+                    <div class="wrapDetail__title">Chọn kích cỡ:</div>
+                    <div class="wrapDetail__wrapBtnSize">
+                        @*Hiển thị các nút size và giá tăng tương ứng từ bảng ChiTietSize*@
+                        @foreach (ChiTietSize i in ViewBag.btnSizes)
+                        {
+                            <div class="wrapDetail__btnSize">
+                                <div class="btnSize__text">@i.Loai_Size</div>
+                                <div class="btnSize__priceIncreases">
+                                    <span>+</span>@i.GiaTang<span>đ</span>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                @*Nếu món ăn không phải là đồ ăn vặt thì sẽ có option chọn (vd: Đá(it, bth, nhiều))*@
+                @if (!(Model.ID_LoaiMonAn == 103))
+                {
+                    <div class="wrapDetail__wrapOption" id="sweet">
+                        <div class="wrapDetail__title">Ngọt:</div>
+                        <div class="wrapDetail__btns">
+                            <div class="wrapDetail__btn active">Ít</div>
+                            <div class="wrapDetail__btn">Bình thường</div>
+                            <div class="wrapDetail__btn">Nhiều</div>
+                        </div>
+                    </div>
+                    //Chỉ khi là trà hoặc trà sữa thì mới có thể chọn option này
+                    if (Model.ID_LoaiMonAn == 101 || Model.ID_LoaiMonAn == 102)
+                    {
+                        <div class="wrapDetail__wrapOption" id="tea">
+                            <div class="wrapDetail__title">Trà:</div>
+                            <div class="wrapDetail__btns">
+                                <div class="wrapDetail__btn active">Ít</div>
+                                <div class="wrapDetail__btn">Bình thường</div>
+                                <div class="wrapDetail__btn">Nhiều</div>
+                            </div>
+                        </div>
+                    }
+
+                    <div class="wrapDetail__wrapOption" id="ice">
+                        <div class="wrapDetail__title">Đá:</div>
+                        <div class="wrapDetail__btns">
+                            <div class="wrapDetail__btn active">Ít</div>
+                            <div class="wrapDetail__btn">Bình thường</div>
+                            <div class="wrapDetail__btn">Nhiều</div>
+                        </div>
+                    </div>
+                }
+
+                <div class="wrapDetail__wrapTopping">
+                    @*Nếu là trà, trà sữa và đồ ăn thì mới hiện title chọn topping*@
+                    @if (Model.ID_LoaiMonAn == 101 || Model.ID_LoaiMonAn == 102 || Model.ID_LoaiMonAn == 103)
+                    {
+                        <div class="wrapDetail__title">Chọn Topping:</div>
+                    }
+
+                    <div class="wrapDetail__wrapOptionTopping">
+                        @*Hiện topping của tất cả loại trà theo ID_LoaiMonAn*@
+                        @if (Model.ID_LoaiMonAn == 101)
+                        {
+                            foreach (ChiTietTopping i in ViewBag.toppTra)
+                            {
+                                <div class="wrapdetail__optionTopping">
+                                    <div class="wrapDetail__namePriceTopp">
+                                        <div class="wrapDetail__nameTopp">@i.Ten_Topping</div>
+                                        <div class="wrapDetail__priceTopp">@i.GiaTopp<span>đ</span></div>
+                                    </div>
+                                    <div class="counter" id="counter2">
+                                        <div class="btnCount btnMinus">
+                                            <i class="fa-solid fa-minus"></i>
+                                        </div>
+                                        <div class="number">0</div>
+                                        <div class="btnCount btnPlus">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        @*Hiện topping của tất cả loại trà sữa theo ID_LoaiMonAn*@
+                        else if (Model.ID_LoaiMonAn == 102)
+                        {
+                            foreach (ChiTietTopping i in ViewBag.toppTraSua)
+                            {
+                                <div class="wrapdetail__optionTopping">
+                                    <div class="wrapDetail__namePriceTopp">
+                                        <div class="wrapDetail__nameTopp">@i.Ten_Topping</div>
+                                        <div class="wrapDetail__priceTopp">@i.GiaTopp<span>đ</span></div>
+                                    </div>
+                                    <div class="counter" id="counter2">
+                                        <div class="btnCount btnMinus">
+                                            <i class="fa-solid fa-minus"></i>
+                                        </div>
+                                        <div class="number">0</div>
+                                        <div class="btnCount btnPlus">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        @*Hiện topping của tất cả loại món ăn vặt theo ID_LoaiMonAn*@
+                        else if (Model.ID_LoaiMonAn == 103)
+                        {
+                            foreach (ChiTietTopping i in ViewBag.toppAnVat)
+                            {
+                                <div class="wrapdetail__optionTopping">
+                                    <div class="wrapDetail__namePriceTopp">
+                                        <div class="wrapDetail__nameTopp">@i.Ten_Topping</div>
+                                        <div class="wrapDetail__priceTopp">@i.GiaTopp<span>đ</span></div>
+                                    </div>
+                                    <div class="counter" id="counter2">
+                                        <div class="btnCount btnMinus">
+                                            <i class="fa-solid fa-minus"></i>
+                                        </div>
+                                        <div class="number">0</div>
+                                        <div class="btnCount btnPlus">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        @*Nếu là cafe thì ẩn nội dung chọn topping*@
+                        else
+                        {
+                            <div class="wrapdetail__optionTopping dl-none"></div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <button class="wrapDetail__wrapBtnAddCart">
+                <div class="wrapBtnAddCart__icon">
+                    <i class="fa-solid fa-cart-plus"></i>
+                </div>
+                <div class="wrapBtnAddCart__text">
+                    Thêm vào giỏ hàng:
+                </div>
+                <div class="wrapBtnAddCart__price">
+                    45.000đ
+                </div>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Thêm jQuery trước các script khác sử dụng jQuery -->
+
+<script src="~/asset/js/detailProducts.js"></script>
+
+<script>
+    const btnAddCart = document.querySelector(".wrapDetail__wrapBtnAddCart")
+    btnAddCart.addEventListener("click", () => {
+
+        const productData = getGeneralData()
+
+        if (@Model.ID_LoaiMonAn == 100) {
+            productData.sweet = document.querySelector("#sweet .wrapDetail__btn.active").textContent
+            productData.ice = document.querySelector("#ice .wrapDetail__btn.active").textContent
+        }
+        else if (@Model.ID_LoaiMonAn == 101 || @Model.ID_LoaiMonAn == 102) {
+            productData.sweet = document.querySelector("#sweet .wrapDetail__btn.active").textContent
+            productData.tea = document.querySelector("#tea .wrapDetail__btn.active").textContent
+            productData.ice = document.querySelector("#tea .wrapDetail__btn.active").textContent
+            productData.topping = getTopping()
+        }
+        else if (@Model.ID_LoaiMonAn == 103) {
+            productData.topping = getTopping()
+        }
+        else
+        {
+            console.log("Lỗi")
+        }
+
+        //const jsonProductData = JSON.stringify(productData);
+
+        fetch('@Url.Action("addToCart", "Home")', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(productData)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+            })
+            .catch(error => console.log("Error:", error))
+    });
+
+    //Lấy ra các phần chung của 1 sản phẩm
+    function getGeneralData()
+    {
+        const nameMon = document.querySelector(".wrapDetail__name").textContent
+        const slMon = document.querySelector("#counter1 .number").textContent
+        const sizeMon = document.querySelector(".wrapDetail__btnSize.active .btnSize__text").textContent
+        const generalData = {
+            name: nameMon,
+            quantity: slMon,
+            size: sizeMon
+        };
+        return generalData
+    }
+
+    //Lấy ra các topping nếu sản phẩm đó có topping
+    function getTopping()
+    {
+        const allTopping = []
+        document.querySelectorAll(".wrapdetail__optionTopping").forEach((item, index) => {
+            const nameTopp = item.querySelector(".wrapDetail__namePriceTopp .wrapDetail__nameTopp").textContent
+            const slTopp = item.querySelector(".counter .number").textContent
+            allTopping.push({ name: nameTopp, quantity: slTopp })
+        })
+        return allTopping
+    }
+
+
+</script>

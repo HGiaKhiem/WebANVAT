@@ -1,0 +1,38 @@
+﻿@using WebAnVat.Models
+@model List<Mon>
+@{
+    ViewBag.Title = "searchByName";
+    Layout = "~/Views/shared/_primaryLayout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="products__title">
+        <h2>Sản phẩm đã tìm kiếm</h2>
+    </div>
+    <div class="row">
+        @foreach (Mon i in Model)
+        {
+            <div class="col-md-3 products__item active">
+                <a href="#" class="products__item-link">
+                    <div class="products__boxItem">
+                        <div class="products__boxImg">
+                            <img src="~/asset/img/Products/@i.HinhAnh" alt="" class="products__img">
+                        </div>
+                        <div class="products__content">
+                            <div class="products__name">
+                                @i.TenMon
+                            </div>
+                            <div class="products__wrapPrice">
+                                <div class="products__currentPrice">@i.GiaSauKhiGiam</div>
+                                <div class="products__oldPrice">@i.GiaBan</div>
+                            </div>
+                            <a href="#" class="products__btnBuy">Đặt mua</a>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</div>
+
+

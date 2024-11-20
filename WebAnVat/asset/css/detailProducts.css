@@ -1,0 +1,220 @@
+﻿
+.body__location 
+{
+    display: flex;
+    margin: 16px 0;
+}
+
+.body__location span 
+{
+    margin: 0 4px;
+}
+
+.body__link 
+{
+    font-size: 18px;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.body__link:hover 
+{
+    transform: rotate(-15deg);
+    transition: 0.5s;
+}
+
+.body__text 
+{
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.body__wrapDetail 
+{
+    display: flex;
+    margin-top: 24px;
+    margin: 0 100px;
+}
+
+.wrapDetail__boxLeft 
+{
+    width: 40%;
+}
+
+.wrapDetail__boxRight 
+{
+    margin-left: 30px;
+    width: 100%;
+}
+
+.wrapDetail__boxImg 
+{
+    background-color: var(--bg-item-color);
+    border-radius: 8px;
+    width: 410px;
+    padding: 75px;
+}
+
+.wrapDetail__name 
+{
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.wrapDetail__wrapID span 
+{
+    margin-right: 4px;
+}
+
+.wrapDetail__price {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.wrapDetail__wrapPriceQuantity 
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapDetail__title 
+{
+    font-size: 18px;
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+.wrapDetail__wrapBtnSize 
+{
+    display: flex;
+    margin-top: 12px;
+}
+
+.wrapDetail__btnSize 
+{
+    position: relative;
+    cursor: pointer;
+    background-color: white;
+    color: var(--black-color);
+    width: 100px;
+    margin: 0 16px;
+    border-radius: 8px;
+    border: 1px solid var(--product-boder);
+    overflow: hidden;
+}
+
+.btnSize__text 
+{
+    text-align: center;
+    padding: 4px 0;
+    font-size: 16px;
+}
+
+.btnSize__priceIncreases 
+{
+    text-align: center;
+    background: var(--product-boder);
+    font-size: 14px;
+}
+
+.wrapDetail__btnSize:hover 
+{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.wrapDetail__btnSize.active .btnSize__priceIncreases 
+{
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.wrapDetail__btnSize.active .btnSize__text 
+{
+    background-color: var(--product-boder);
+}
+
+.wrapDetail__btnSize:first-child 
+{
+    margin-left: 0;
+}
+/* option */
+.wrapDetail__btns 
+{
+    display: flex;
+    margin-top: 12px;
+}
+
+.wrapDetail__btn 
+{
+    margin: 0 6px;
+    background-color: var(--product-boder);
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.wrapDetail__btn:first-child 
+{
+    margin-left: 0;
+}
+
+.wrapDetail__btn.active 
+{
+    transition: 0.5s;
+    background-color: var(--primary-color);
+    color: white;
+}
+/* topping */
+.wrapDetail__wrapOptionTopping 
+{
+    width: 70%;
+}
+
+.wrapdetail__optionTopping 
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 8px 0;
+}
+
+.wrapDetail__nameTopp 
+{
+    font-size: 16px;
+}
+
+.wrapDetail__priceTopp 
+{
+    font-size: 12px;
+}
+
+.wrapDetail__wrapBtnAddCart 
+{
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    color: white;
+    width: fit-content;
+    margin: 50px auto 0;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.wrapDetail__wrapBtnAddCart:hover 
+{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.wrapBtnAddCart__text 
+{
+    margin: 0 6px;
+}

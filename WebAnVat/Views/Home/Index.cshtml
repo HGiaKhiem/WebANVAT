@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/shared/_primaryLayout.cshtml";
+}
+
+@using WebAnVat.Models
+@model List<Mon>
+
+<div class="body container">
+    <div class="body__carousel">
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="~/asset/img/carousel/web_1920x576px-20240916030803.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="~/asset/img/carousel/web_1920x576px-20240916030803.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="~/asset/img/carousel/web_1920x576px-20240916030803.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="body__products">
+        <div class="products__title">
+            <h2>Đồ ăn vặt</h2>
+        </div>
+
+        <div id="products__list-food" class="products__list">
+            <div class="row">
+                @foreach (Mon i in ViewBag.listFood)
+                {
+                    <div class="col-md-3 products__item">
+                        <a href="@Url.Action("detailProducts","Home", new {id = i.ID_Mon})" class="products__item-link">
+                            <div class="products__boxItem">
+                                <div class="products__boxImg">
+                                    <img src="~/asset/img/Products/@i.HinhAnh" alt="" class="products__img">
+                                </div>
+                                <div class="products__content">
+                                    <div class="products__name">
+                                        @i.TenMon
+                                    </div>
+                                    <div class="products__wrapPrice">
+                                        <div class="products__currentPrice">@i.GiaSauKhiGiam</div>
+                                        <div class="products__oldPrice">@i.GiaBan</div>
+                                    </div>
+                                    <div class="products__btnBuy">Đặt mua</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
+
+            <div id="btn-products-viewAll-food" class="products__viewAll">Xem tất cả</div>
+
+        </div>
+
+        <div class="products__title">
+            <h2>Đồ uống</h2>
+        </div>
+
+        <div id="products__list-drink" class="products__list">
+            <div class="row">
+                @foreach (Mon i in ViewBag.listDrink)
+                {
+                    <div class="col-md-3 products__item">
+                        <a href="@Url.Action("detailProducts","Home", new {id = i.ID_Mon})" class="products__item-link">
+                            <div class="products__boxItem">
+                                <div class="products__boxImg">
+                                    <img src="~/asset/img/Products/@i.HinhAnh" alt="" class="products__img">
+                                </div>
+                                <div class="products__content">
+                                    <div class="products__name">
+                                        @i.TenMon
+                                    </div>
+                                    <div class="products__wrapPrice">
+                                        <div class="products__currentPrice">@i.GiaSauKhiGiam<span>đ</span></div>
+                                        <div class="products__oldPrice">@i.GiaBan</div>
+                                    </div>
+                                    <div class="products__btnBuy">Đặt mua</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
+
+            <div id="btn-products-viewAll-drink" class="products__viewAll">Xem tất cả</div>
+        </div>
+
+    </div>
+</div>
+<script src="~/asset/js/main.js"></script>

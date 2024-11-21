@@ -22,7 +22,9 @@
         <div class="wrapDetail__boxRight">
             <div class="wrapDetail__wrapContent">
                 <div class="wrapDetail__name">@Model.TenMon</div>
-                <div class="wrapDetail__wrapID"><span>ID:</span>@Model.ID_Mon</div>
+                <div class="wrapDetail__wrapID">
+                    <span class="wrapDetail__text">ID:</span><span class="wrapDetail__num">@Model.ID_Mon</span>
+                </div>
                 <div class="wrapDetail__wrapPriceQuantity">
                     <div class="wrapDetail__price">@Model.GiaBan</div>
                     <div class="counter" id="counter1">
@@ -192,49 +194,56 @@
         const productData = getGeneralData()
 
         if (@Model.ID_LoaiMonAn == 100) {
-            productData.sweet = document.querySelector("#sweet .wrapDetail__btn.active").textContent
-            productData.ice = document.querySelector("#ice .wrapDetail__btn.active").textContent
+            productData.Sweet = document.querySelector("#sweet .wrapDetail__btn.active").textContent
+            productData.Ice = document.querySelector("#ice .wrapDetail__btn.active").textContent
         }
         else if (@Model.ID_LoaiMonAn == 101 || @Model.ID_LoaiMonAn == 102) {
-            productData.sweet = document.querySelector("#sweet .wrapDetail__btn.active").textContent
-            productData.tea = document.querySelector("#tea .wrapDetail__btn.active").textContent
-            productData.ice = document.querySelector("#tea .wrapDetail__btn.active").textContent
-            productData.topping = getTopping()
+            productData.Sweet = document.querySelector("#sweet .wrapDetail__btn.active").textContent
+            productData.Tea = document.querySelector("#tea .wrapDetail__btn.active").textContent
+            productData.Ice = document.querySelector("#tea .wrapDetail__btn.active").textContent
+            productData.Topping = getTopping()
         }
         else if (@Model.ID_LoaiMonAn == 103) {
-            productData.topping = getTopping()
+            productData.Topping = getTopping()
         }
         else
         {
             console.log("Lỗi")
         }
 
-        //const jsonProductData = JSON.stringify(productData);
+        const jsonProductData = JSON.stringify(productData);
+        console.log(jsonProductData)
 
         fetch('@Url.Action("addToCart", "Home")', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(productData)
+            body: jsonProductData
         })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-            })
-            .catch(error => console.log("Error:", error))
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
     });
+
+
 
     //Lấy ra các phần chung của 1 sản phẩm
     function getGeneralData()
     {
+        const idMon = Number(document.querySelector(".wrapDetail__num").textContent)
         const nameMon = document.querySelector(".wrapDetail__name").textContent
         const slMon = document.querySelector("#counter1 .number").textContent
         const sizeMon = document.querySelector(".wrapDetail__btnSize.active .btnSize__text").textContent
         const generalData = {
-            name: nameMon,
-            quantity: slMon,
-            size: sizeMon
+            Id: idMon,
+            Name: nameMon,
+            Quantity: slMon,
+            Size: sizeMon
         };
         return generalData
     }
@@ -246,7 +255,7 @@
         document.querySelectorAll(".wrapdetail__optionTopping").forEach((item, index) => {
             const nameTopp = item.querySelector(".wrapDetail__namePriceTopp .wrapDetail__nameTopp").textContent
             const slTopp = item.querySelector(".counter .number").textContent
-            allTopping.push({ name: nameTopp, quantity: slTopp })
+            allTopping.push({ Name: nameTopp, Quantity: slTopp })
         })
         return allTopping
     }

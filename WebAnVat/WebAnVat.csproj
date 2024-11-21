@@ -170,6 +170,7 @@
     <Compile Include="Models\GioHang.cs">
       <DependentUpon>WebAnVat.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\loadCart.cs" />
     <Compile Include="Models\LoaiMonAn.cs">
       <DependentUpon>WebAnVat.tt</DependentUpon>
     </Compile>
@@ -221,6 +222,7 @@
     <Content Include="Views\Account\ForgetPW.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Home\loadCart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

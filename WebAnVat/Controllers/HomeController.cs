@@ -146,23 +146,79 @@ namespace WebAnVat.Controllers
             return View(monDetail);
         }
 
+        //Thêm một sản phẩm từ trang chi tiết sản phẩm vào bảng GioHang
         [HttpPost]
-        public ActionResult addToCart(string jsonProductData)
+        public ActionResult addToCart(productData data)
         {
-            string data = jsonProductData.ToString();
             int idUser = 104;
-            int idMon = 108;
+
+            if (data != null)
+            {
+                using (SqlConnection conn = new SqlConnection(conStr))
+                {
+                    conn.Open();
+                    string query = "insert into GioHang(ID_NgMua, ID_Mon, TenMon, SoLuong, Size, Sweet, Tea, Ice, topping) values(@idNgMua, @idMon, @tenmon, @sl, @size, @sweet, @tea, @ice, @topping)";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@idNgMua", idUser);
+                    cmd.Parameters.AddWithValue("@idMon", data.Id);
+                    cmd.Parameters.AddWithValue("@tenmon", data.Name);
+                    cmd.Parameters.AddWithValue("@sl", data.Quantity);
+                    cmd.Parameters.AddWithValue("@size", data.Size);
+                    cmd.Parameters.AddWithValue("@sweet", data.Sweet ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@tea", data.Tea ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@ice", data.Ice ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@topping", JsonConvert.SerializeObject(data.Topping) ?? (object)DBNull.Value);
+                    cmd.ExecuteNonQuery();
+                }
+                return Json(new { success = true, message = "Sản phẩm đã được thêm vào giỏ hàng" });
+            }
+            else
+            {
+                return Json(new { success = false, message = "Không nhận được dữ liệu" });
+            }
+        }
+
+        //load sản phẩm từ bảng GioHang lên trang giỏ hàng
+        public ActionResult loadCart(int idUser = 104)
+        {
+
+            List<loadCart> ds = new List<loadCart>();
+            string query = "select * from GioHang g join Mon m on g.ID_Mon = m.ID_Mon where ID_NgMua = @idUser";
+            var sum = 0;
             using (SqlConnection conn = new SqlConnection(conStr))
             {
                 conn.Open();
-                string query = "insert into GioHang values(@idNgMua, @idMon, @productData)";
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@idNgMua", idUser);
-                cmd.Parameters.AddWithValue("@idMon", idMon);
-                cmd.Parameters.AddWithValue("@productData", data);
-                cmd.ExecuteNonQuery();
+                cmd.Parameters.AddWithValue("@idUser", idUser);
+                SqlDataReader rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    loadCart a = new loadCart();
+                    a.Name = rd.GetValue(3).ToString();
+                    a.Quantity = int.Parse(rd.GetValue(4).ToString());
+                    a.Size = rd.GetValue(5).ToString();
+                    a.Sweet = rd.GetValue(6).ToString();
+                    a.Tea = rd.GetValue(7).ToString();
+                    a.Ice = rd.GetValue(8).ToString();
+                    a.Topping = rd.GetValue(9).ToString();
+                    a.ID_LoaiMonAn = int.Parse(rd.GetValue(13).ToString());
+                    a.Img = rd.GetValue(14).ToString();
+
+                    int priceNum = int.Parse(rd.GetValue(16).ToString());
+                    a.price = priceNum.ToString("N0");
+                    sum = sum + priceNum;
+                    ds.Add(a);
+                }
             }
-            return Json(new { success = true, message = "Sản phẩm đã được thêm vào giỏ hàng" });
+
+            //Tổng tiền tạm tính khi chưa cộng phí ship
+            var tamtinh = sum;
+            //Tổng tiền sau khi đã cộng phí ship
+            var thanhtien = sum + 15000;
+
+            ViewBag.tamtinh = tamtinh.ToString("N0");
+            ViewBag.thanhtien = thanhtien.ToString("N0");
+            return View(ds);
         }
     }
 }

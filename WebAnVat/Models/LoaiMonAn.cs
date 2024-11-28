@@ -17,13 +17,13 @@ namespace WebAnVat.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LoaiMonAn()
         {
-            this.Mon = new HashSet<Mon>();
+            this.Mons = new HashSet<Mon>();
         }
     
         public int ID_LoaiMonAn { get; set; }
         public string TenLoaiMonAn { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Mon> Mon { get; set; }
+        public virtual ICollection<Mon> Mons { get; set; }
     }
 }

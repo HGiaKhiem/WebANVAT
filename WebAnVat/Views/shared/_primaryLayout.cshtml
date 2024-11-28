@@ -8,14 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="~/asset/css/base.css ">
     <link rel="stylesheet" href="~/asset/css/style.css">
-    <link rel="stylesheet" href="~/asset/css/detailProducts.css"/>
+    <link rel="stylesheet" href="~/asset/css/detailProducts.css" />
+    <link rel="stylesheet" href="~/asset/css/responsiveIndex.css" />
 </head>
 <body>
     <div class="web">
         <div class="header">
-            <div class="header__navbar container">
+            <div class="header__navbar container-md">
                 <div class="header__navbar-left">
-                    <a href="@Url.Action("Index","Home")" class="navbar-left__brand">
+                    <a href="@Url.Action("Index", "Home")" class="navbar-left__brand">
                         <img src="~/asset/img/logo.png" alt="">
                     </a>
                     <form class="navbar-left__search" role="search" method="get" action="@Url.Action("searchByName", "Home")">
@@ -25,22 +26,55 @@
                         <input class="navbar-left__search-input" autocomplete="off" type="search" placeholder="Bạn muốn mua gì ? " aria-label="Search" name="tenmon">
                     </form>
                 </div>
+
+                @*menu của mobile*@
+                <div class="header__mobile-menu">
+                    <div class="mobile__icon-menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </div>
+
                 <div class="header__navbar-right">
-                    <button class="navbar-right__method" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <div class="navbar-right__method">
                         <div class="navbar-right__method-img">
                             <img src="~/asset/img/navbar/delivery.png" alt="">
                         </div>
                         <div class="navbar-right__method-text">
-                            Chọn phương thức nhận hàng
+                            Giao hàng tận nơi 24/24
                         </div>
-                    </button>
+                    </div>
 
                     <div class="navbar-right__mail">
                         <i class="fa-regular fa-envelope"></i>
                     </div>
-                    <a href="@Url.Action("Login","Account")" class="navbar-right__user">
-                        <i class="fa-regular fa-user"></i>
-                    </a>
+
+                    @if (Session["ID"] == null)
+                    {
+                        <a href="@Url.Action("Login","Account")" class="navbar-right__user">
+                            <i class="fa-regular fa-user"></i>
+                        </a>
+                    }
+                    else
+                    {
+
+                        <div class="navbar-right__user">
+                            <i class="fa-regular fa-user"></i>
+                            <div class="navbar-right__user-menu">
+                                <a href="" class="user-menu__content">
+                                    <i class="fa-solid fa-id-card"></i>
+                                    <span>Thông tin cá nhân</span>
+                                </a>
+                                <a href="" class="user-menu__content">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    <span>Đơn hàng</span>
+                                </a>
+                                <a href="@Url.Action("Logout","Account")" class="user-menu__content">
+                                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                    <span>Đăng xuất</span>
+                                </a>
+                            </div>
+                        </div>
+                    }
                 </div>
             </div>
 
@@ -181,7 +215,7 @@
         <div class="footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-sm-12 col-md-4">
                         <div class="footer__box">
                             <div class="footer__title">
                                 Ăn Vặt Shop
@@ -192,7 +226,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-sm-12 col-md-4">
                         <div class="footer__box">
                             <div class="footer__title">
                                 Chăm sóc khách hàng
@@ -232,7 +266,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-sm-12 col-md-4">
                         <div class="footer__box">
                             <div class="footer__title">
                                 Thông tin liên hệ
@@ -269,58 +303,83 @@
             </div>
         </div>
     </div>
+    @* Kiểm tra nếu trang hiện tại là trang giỏ hàng, không hiển thị giỏ hàng *@
+    @if (Request.Url.AbsolutePath.Contains("/Home/loadCart"))
+    {
+        // Không hiển thị giỏ hàng nếu đang ở trang giỏ hàng
+    }
+    else
+    {
+        @* Nếu chưa đăng nhập thì khi click vào giỏ hàng sẽ chuyển đến trang đăng nhập *@
+        if (Session["ID"] == null)
+        {
+            <a href="@Url.Action("Login", "Account")" class="cart-btn">
+                <div class="cart-btn__wrap-icon">
+                    <i class="fa-solid fa-cart-plus cart__icon"></i>
+                </div>
+            </a>
+        }
+        @* Nếu đã đăng nhập thì khi click vào giỏ hàng sẽ chuyển đến trang giỏ hàng *@
+        else
+        {
+            <a href="@Url.Action("loadCart", "Home")" class="cart-btn">
+                <div class="cart-btn__wrap-icon">
+                    <i class="fa-solid fa-cart-plus cart__icon"></i>
+                </div>
+            </a>
+        }
+    }
+
 </body>
 
-<!-- Modal phương thức nhận hàng-->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-method__content modal-content">
-            <div class="container modal-method__header">
-                <div class="row modal-method__list">
-                    <div class="modal-method__item active col-md-6">
-                        Giao hàng
-                        <div class="modal-method__line active"></div>
-                    </div>
-                    <div class="modal-method__item col-md-6">
-                        Đến lấy hàng
-                        <div class="modal-method__line"></div>
-                    </div>
-                </div>
+@*Modal mobile menu*@
+<div class="modal" id="modal__menu">
+    <div class="modal__container">
+        <div class="mobile__menu-list">
+            <div class="mobile__wp-btn-close">
+                <i class="fa-solid fa-xmark mobile__btn-close"></i>
             </div>
-            <div class="modal-method__body active">
-                <div class="modal-method__box active">
-                    <div class="modal-method__search">
-                        <div class="modal-method__icon-search">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </div>
-                        <input type="text" class="modal-method__ip" placeholder="Vui lòng nhập địa chỉ">
-                    </div>
-                    <div class="modal-method__location">
-                        <div class="modal-method__location-icon">
-                            <i class="fa-solid fa-location-crosshairs"></i>
-                        </div>
-                        <div class="modal-method__location-text">Vị trí hiện tại của bạn</div>
-                    </div>
-                </div>
+            <div class="mobile__menu-items">
+                <a href="@Url.Action("mobileFilterDrink","Home")" class="mobile__menu-item">Thức uống</a>
+                <a href="@Url.Action("mobileFilterFood", "Home")" class="mobile__menu-item">Đồ ăn</a>
+                <a href="" class="mobile__menu-item">Liên hệ</a>
 
-                <div class="modal-method__box">
-                    <div class="modal-method__search">
-                        <div class="modal-method__icon-search">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </div>
-                        <input type="text" class="modal-method__ip" placeholder="Vui lòng nhập địa điểm, tên cửa hàng">
-                    </div>
-                </div>
+                @if (Session["ID"] == null)
+                {
+                    <a href="@Url.Action("Login","Account")" class="mobile__menu-item">Đăng nhập</a>
+                }
+                else
+                {
+                    <a href="@Url.Action("Logout","Account")" class="mobile__menu-item">Đăng xuất</a>
+                }
             </div>
-            <button type="button" class="modal-method__btn" data-bs-dismiss="modal" aria-label="Close">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
         </div>
     </div>
-
 </div>
 
-@*<script src="~/asset/js/main.js"></script>
-<script src="~/asset/js/detailProducts.js"></script>*@
+<script>
+    //Bật, tắt menu trên ipad, điênh thoại
+    var mobileBtnClose = document.querySelector(".mobile__btn-close")
+    var mobileBtnMenu = document.querySelector(".mobile__icon-menu")
+    var modal = document.querySelector(".modal")
+    var modalContainer = document.querySelector(".modal__container")
+
+    mobileBtnMenu.addEventListener("click", () => {
+        modal.classList.add("active")
+    })
+    mobileBtnClose.addEventListener('click', () => {
+        modal.classList.remove("active")
+    })
+
+    modal.addEventListener('click', () => {
+        modal.classList.remove("active")
+    })
+
+    modalContainer.addEventListener('click', function (e) {
+        e.stopPropagation();
+        //Ngăn chặn hành vi click ở thẻ con mà thẻ cha vẫn có thể nghe thấy
+    })
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 </html>

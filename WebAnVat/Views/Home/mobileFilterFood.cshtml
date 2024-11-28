@@ -1,16 +1,16 @@
 ﻿@using WebAnVat.Models
 @model List<Mon>
 @{
-    ViewBag.Title = "searchByName";
+    ViewBag.Title = "mobileFilterFood";
     Layout = "~/Views/shared/_primaryLayout.cshtml";
 }
 
 <div class="container mt-150px">
     <div class="products__title">
-        <h2>Sản phẩm đã tìm kiếm</h2>
+        <h2>Đồ ăn vặt</h2>
     </div>
     <div class="row">
-        @foreach (Mon i in Model)
+        @foreach (var i in Model)
         {
             <div class="col-sm-12 col-md-4 col-lg-3 products__item active">
 
@@ -55,7 +55,7 @@
                     </a>
                 }
             </div>
-        }
+         }
     </div>
 </div>
 

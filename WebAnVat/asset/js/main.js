@@ -70,4 +70,3 @@ inputSearch.addEventListener("keyup", (e) => {
 })
 
 
-

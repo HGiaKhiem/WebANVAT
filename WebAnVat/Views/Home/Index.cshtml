@@ -7,7 +7,7 @@
 @using WebAnVat.Models
 @model List<Mon>
 
-<div class="body container">
+<div class="body container-md">
     <div class="body__carousel">
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -34,31 +34,55 @@
 
     <div class="body__products">
         <div class="products__title">
-            <h2>Đồ ăn vặt</h2>
+            <h2>Thức uống</h2>
         </div>
 
         <div id="products__list-food" class="products__list">
             <div class="row">
                 @foreach (Mon i in ViewBag.listFood)
                 {
-                    <div class="col-md-3 products__item">
-                        <a href="@Url.Action("detailProducts","Home", new {id = i.ID_Mon})" class="products__item-link">
-                            <div class="products__boxItem">
-                                <div class="products__boxImg">
-                                    <img src="~/asset/img/Products/@i.HinhAnh" alt="" class="products__img">
-                                </div>
-                                <div class="products__content">
-                                    <div class="products__name">
-                                        @i.TenMon
+                    <div class="col-sm-12 col-md-4 col-lg-3 products__item">
+
+                        @if (Session["ID"] == null)
+                        {
+                            <a href="@Url.Action("Login","Account")" class="products__item-link">
+                                <div class="products__boxItem">
+                                    <div class="products__boxImg">
+                                        <img src="~/asset/img/Products/@i.HinhAnh" alt="" class="products__img">
                                     </div>
-                                    <div class="products__wrapPrice">
-                                        <div class="products__currentPrice">@i.GiaSauKhiGiam</div>
-                                        <div class="products__oldPrice">@i.GiaBan</div>
+                                    <div class="products__content">
+                                        <div class="products__name">
+                                            @i.TenMon
+                                        </div>
+                                        <div class="products__wrapPrice">
+                                            <div class="products__currentPrice">@i.GiaSauKhiGiam<span>đ</span></div>
+                                            <div class="products__oldPrice">@i.GiaBan<span>đ</span></div>
+                                        </div>
+                                        <div class="products__btnBuy">Đặt mua</div>
                                     </div>
-                                    <div class="products__btnBuy">Đặt mua</div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("detailProducts","Home", new {id = i.ID_Mon})" class="products__item-link">
+                                <div class="products__boxItem">
+                                    <div class="products__boxImg">
+                                        <img src="~/asset/img/Products/@i.HinhAnh" alt="" class="products__img">
+                                    </div>
+                                    <div class="products__content">
+                                        <div class="products__name">
+                                            @i.TenMon
+                                        </div>
+                                        <div class="products__wrapPrice">
+                                            <div class="products__currentPrice">@i.GiaSauKhiGiam<span>đ</span></div>
+                                            <div class="products__oldPrice">@i.GiaBan<span>đ</span></div>
+                                        </div>
+                                        <div class="products__btnBuy">Đặt mua</div>
+                                    </div>
+                                </div>
+                            </a>
+                        }
                     </div>
                 }
             </div>
@@ -75,24 +99,47 @@
             <div class="row">
                 @foreach (Mon i in ViewBag.listDrink)
                 {
-                    <div class="col-md-3 products__item">
-                        <a href="@Url.Action("detailProducts","Home", new {id = i.ID_Mon})" class="products__item-link">
-                            <div class="products__boxItem">
-                                <div class="products__boxImg">
-                                    <img src="~/asset/img/Products/@i.HinhAnh" alt="" class="products__img">
-                                </div>
-                                <div class="products__content">
-                                    <div class="products__name">
-                                        @i.TenMon
+                    <div class="col-sm-12 col-md-4 col-lg-3 products__item">
+                        @if (Session["ID"] == null)
+                        {
+                            <a href="@Url.Action("Login","Account")" class="products__item-link">
+                                <div class="products__boxItem">
+                                    <div class="products__boxImg">
+                                        <img src="~/asset/img/Products/@i.HinhAnh" alt="" class="products__img">
                                     </div>
-                                    <div class="products__wrapPrice">
-                                        <div class="products__currentPrice">@i.GiaSauKhiGiam<span>đ</span></div>
-                                        <div class="products__oldPrice">@i.GiaBan</div>
+                                    <div class="products__content">
+                                        <div class="products__name">
+                                            @i.TenMon
+                                        </div>
+                                        <div class="products__wrapPrice">
+                                            <div class="products__currentPrice">@i.GiaSauKhiGiam<span>đ</span></div>
+                                            <div class="products__oldPrice">@i.GiaBan<span>đ</span></div>
+                                        </div>
+                                        <div class="products__btnBuy">Đặt mua</div>
                                     </div>
-                                    <div class="products__btnBuy">Đặt mua</div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("detailProducts","Home", new {id = i.ID_Mon})" class="products__item-link">
+                                <div class="products__boxItem">
+                                    <div class="products__boxImg">
+                                        <img src="~/asset/img/Products/@i.HinhAnh" alt="" class="products__img">
+                                    </div>
+                                    <div class="products__content">
+                                        <div class="products__name">
+                                            @i.TenMon
+                                        </div>
+                                        <div class="products__wrapPrice">
+                                            <div class="products__currentPrice">@i.GiaSauKhiGiam<span>đ</span></div>
+                                            <div class="products__oldPrice">@i.GiaBan<span>đ</span></div>
+                                        </div>
+                                        <div class="products__btnBuy">Đặt mua</div>
+                                    </div>
+                                </div>
+                            </a>
+                        }
                     </div>
                 }
             </div>
@@ -101,9 +148,6 @@
         </div>
     </div>
 
-    <a href="" class="cart__btn">
-        <i class="fa-solid fa-cart-plus cart__icon"></i>
-        <div class="cart__number">1</div>
-    </a>
+
 </div>
 <script src="~/asset/js/main.js"></script>

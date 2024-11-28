@@ -7,18 +7,20 @@
 }
 
 body {
-    background: var(--bg-color);
     font-family: 'Arial',sans-serif;
-    color:d#ddc333
 }
 
-form {
-    width: 20%;
+.wrap-login {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    display: block;
     background-color: white;
     padding: 50px;
     border-radius: 20px;
     margin-top: 150px;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+form {
+ 
 }
 
 .btn-primary {
@@ -29,6 +31,7 @@ form {
 }
 
 .form-control {
+    width: 100%;
     color: rgba(0, 0, 0, .87);
     border-bottom: 2px solid var(--primary-color);
 }

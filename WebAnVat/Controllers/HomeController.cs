@@ -35,7 +35,8 @@ namespace WebAnVat.Controllers
                     m.ID_LoaiMonAn = int.Parse(rd.GetValue(3).ToString());
                     m.HinhAnh = rd.GetValue(4).ToString();
                     m.KhuyenMai = int.Parse(rd.GetValue(5).ToString());
-                    m.GiaSauKhiGiam = int.Parse(rd.GetValue(6).ToString());
+                    var gskgNumber = int.Parse(rd.GetValue(6).ToString());
+                    m.GiaSauKhiGiam = gskgNumber;
                     ds.Add(m);
                 }
             }
@@ -65,7 +66,9 @@ namespace WebAnVat.Controllers
                     m.ID_LoaiMonAn = int.Parse(rd.GetValue(3).ToString());
                     m.HinhAnh = rd.GetValue(4).ToString();
                     m.KhuyenMai = int.Parse(rd.GetValue(5).ToString());
-                    m.GiaSauKhiGiam = int.Parse(rd.GetValue(6).ToString());
+
+                    var gskgNumber = int.Parse(rd.GetValue(6).ToString());
+                    m.GiaSauKhiGiam = gskgNumber;
                     ds.Add(m);
                 }    
 
@@ -93,7 +96,9 @@ namespace WebAnVat.Controllers
                     monDetail.GiaBan = int.Parse(rd.GetValue(2).ToString());
                     monDetail.ID_LoaiMonAn = int.Parse(rd.GetValue(3).ToString());
                     monDetail.HinhAnh = rd.GetValue(4).ToString();
-                    monDetail.GiaSauKhiGiam = int.Parse(rd.GetValue(6).ToString());
+
+                    var gskgNumber = int.Parse(rd.GetValue(6).ToString());
+                    monDetail.GiaSauKhiGiam = gskgNumber;
                 }
             }
             //Lấy ra Size và giá tăng theo size 
@@ -150,7 +155,7 @@ namespace WebAnVat.Controllers
         [HttpPost]
         public ActionResult addToCart(productData data)
         {
-            int idUser = 104;
+            int idUser = Convert.ToInt32(Session["ID"]);
 
             if (data != null)
             {
@@ -170,21 +175,24 @@ namespace WebAnVat.Controllers
                     cmd.Parameters.AddWithValue("@topping", JsonConvert.SerializeObject(data.Topping) ?? (object)DBNull.Value);
                     cmd.ExecuteNonQuery();
                 }
+                ViewBag.Message = "Sản phẩm đã được thêm vào giỏ hàng";
                 return Json(new { success = true, message = "Sản phẩm đã được thêm vào giỏ hàng" });
             }
             else
             {
+                ViewBag.Message = "Không thể thêm sản phẩm";
                 return Json(new { success = false, message = "Không nhận được dữ liệu" });
             }
         }
 
         //load sản phẩm từ bảng GioHang lên trang giỏ hàng
-        public ActionResult loadCart(int idUser = 104)
+        public ActionResult loadCart()
         {
-
             List<loadCart> ds = new List<loadCart>();
             string query = "select * from GioHang g join Mon m on g.ID_Mon = m.ID_Mon where ID_NgMua = @idUser";
+            int idUser = Convert.ToInt32(Session["ID"]);
             var sum = 0;
+            int slsp = 0;
             using (SqlConnection conn = new SqlConnection(conStr))
             {
                 conn.Open();
@@ -194,6 +202,8 @@ namespace WebAnVat.Controllers
                 while (rd.Read())
                 {
                     loadCart a = new loadCart();
+                    a.ID_GioHang = int.Parse(rd.GetValue(0).ToString());
+                    a.ID_Mon = int.Parse(rd.GetValue(2).ToString());
                     a.Name = rd.GetValue(3).ToString();
                     a.Quantity = int.Parse(rd.GetValue(4).ToString());
                     a.Size = rd.GetValue(5).ToString();
@@ -218,6 +228,60 @@ namespace WebAnVat.Controllers
 
             ViewBag.tamtinh = tamtinh.ToString("N0");
             ViewBag.thanhtien = thanhtien.ToString("N0");
+            return View(ds);
+        }
+
+        public ActionResult mobileFilterFood()
+        {
+            List<Mon> ds = new List<Mon>();
+            using (SqlConnection conn = new SqlConnection(conStr))
+            {
+                conn.Open();
+                string query = "select * from Mon where ID_LoaiMonAn = 103";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    Mon m = new Mon();
+                    m.ID_Mon = int.Parse(rd.GetValue(0).ToString());
+                    m.TenMon = rd.GetValue(1).ToString();
+                    m.GiaBan = int.Parse(rd.GetValue(2).ToString());
+                    m.ID_LoaiMonAn = int.Parse(rd.GetValue(3).ToString());
+                    m.HinhAnh = rd.GetValue(4).ToString();
+                    m.KhuyenMai = int.Parse(rd.GetValue(5).ToString());
+
+                    var gskgNumber = int.Parse(rd.GetValue(6).ToString());
+                    m.GiaSauKhiGiam = gskgNumber;
+                    ds.Add(m);
+                }
+            }
+            return View(ds);
+        }
+
+        public ActionResult mobileFilterDrink()
+        {
+            List<Mon> ds = new List<Mon>();
+            using (SqlConnection conn = new SqlConnection(conStr))
+            {
+                conn.Open();
+                string query = "select * from Mon where ID_LoaiMonAn = 100 or ID_LoaiMonAn = 101 or ID_LoaiMonAn = 102";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader rd = cmd.ExecuteReader();
+                while (rd.Read())
+                {
+                    Mon m = new Mon();
+                    m.ID_Mon = int.Parse(rd.GetValue(0).ToString());
+                    m.TenMon = rd.GetValue(1).ToString();
+                    m.GiaBan = int.Parse(rd.GetValue(2).ToString());
+                    m.ID_LoaiMonAn = int.Parse(rd.GetValue(3).ToString());
+                    m.HinhAnh = rd.GetValue(4).ToString();
+                    m.KhuyenMai = int.Parse(rd.GetValue(5).ToString());
+
+                    var gskgNumber = int.Parse(rd.GetValue(6).ToString());
+                    m.GiaSauKhiGiam = gskgNumber;
+                    ds.Add(m);
+                }
+            }
             return View(ds);
         }
     }

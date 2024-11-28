@@ -17,7 +17,7 @@ namespace WebAnVat.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DonHang()
         {
-            this.ChiTietDonHang = new HashSet<ChiTietDonHang>();
+            this.ChiTietDonHangs = new HashSet<ChiTietDonHang>();
         }
     
         public int ID_DonHang { get; set; }
@@ -29,7 +29,7 @@ namespace WebAnVat.Models
         public Nullable<decimal> TienGiaoHang { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietDonHang> ChiTietDonHang { get; set; }
+        public virtual ICollection<ChiTietDonHang> ChiTietDonHangs { get; set; }
         public virtual NguoiMua NguoiMua { get; set; }
         public virtual PTThanhToan PTThanhToan1 { get; set; }
     }

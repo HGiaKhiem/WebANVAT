@@ -13,7 +13,7 @@
             <div class="cart__icon">
                 <i class="fa-solid fa-bag-shopping"></i>
             </div>
-            <div class="cart__title">Giỏ hàng của bạn</div>
+            <div class="cart__title">Giỏ hàng của bạn (@ViewBag.slsp Món)</div>
         </div>
 
         <div class="cart__products">
@@ -36,8 +36,13 @@
                                 @i.price<span>đ</span>
                             </div>
                         </div>
-                        <div class="cart__btn-delete">
-                            <i class="fa-solid fa-trash-can"></i>
+                        <div class="cart__wrap-btns">
+                            <a href="@Url.Action("editItem","Cart", new {ID_GioHang = i.ID_GioHang, ID_Mon = i.ID_Mon})" class="cart__btn-edit" title="Sửa">
+                                <i class="fa-solid fa-pen"></i>
+                            </a>
+                            <a href="@Url.Action("deleteItem","Cart", new {ID_GioHang = i.ID_GioHang})" class="cart__btn-delete">
+                                <i class="fa-solid fa-trash-can" title="Xóa"></i>
+                            </a>
                         </div>
                     </div>
                 }
@@ -53,13 +58,20 @@
                             </div>
                             <div class="cart__in4-option">
                                 Kích cỡ: @i.Size, Ngọt: @i.Sweet, Trà: @i.Tea, Đá: @i.Ice, Số lượng: @i.Quantity
+                                <br />
+                                topping: @i.Topping
                             </div>
                             <div class="cart__in4-price">
                                 @i.price<span>đ</span>
                             </div>
                         </div>
-                        <div class="cart__btn-delete">
-                            <i class="fa-solid fa-trash-can"></i>
+                        <div class="cart__wrap-btns">
+                            <a href="@Url.Action("editItem","Cart", new {ID_GioHang = i.ID_GioHang, ID_Mon = i.ID_Mon})" class="cart__btn-edit" title="Sửa">
+                                <i class="fa-solid fa-pen"></i>
+                            </a>
+                            <a href="@Url.Action("deleteItem","Cart", new {ID_GioHang = i.ID_GioHang})" class="cart__btn-delete">
+                                <i class="fa-solid fa-trash-can" title="Xóa"></i>
+                            </a>
                         </div>
                     </div>
                 }
@@ -75,13 +87,20 @@
                             </div>
                             <div class="cart__in4-option">
                                 Kích cỡ: @i.Size, Số lượng: @i.Quantity
+                                <br />
+                                topping: @i.Topping
                             </div>
                             <div class="cart__in4-price">
                                 @i.price<span>đ</span>
                             </div>
                         </div>
-                        <div class="cart__btn-delete">
-                            <i class="fa-solid fa-trash-can"></i>
+                        <div class="cart__wrap-btns">
+                            <a href="@Url.Action("editItem","Cart", new {ID_GioHang = i.ID_GioHang, ID_Mon = i.ID_Mon})" class="cart__btn-edit" title="Sửa">
+                                <i class="fa-solid fa-pen"></i>
+                            </a>
+                            <a href="@Url.Action("deleteItem","Cart", new {ID_GioHang = @i.ID_GioHang})" class="cart__btn-delete">
+                                <i class="fa-solid fa-trash-can" title="Xóa"></i>
+                            </a>
                         </div>
                     </div>
                 }
@@ -89,6 +108,18 @@
         </div>
 
         <div class="cart__payment-infor">
+            <form class="payment-infor__wrap-address">
+                <div class="payment-infor__title">Nhập địa chỉ để nhận hàng</div>
+                <input class="payment-infor__input"></input>
+            </form>
+            <form class="payment-infor__wrap-address">
+                <div class="payment-infor__title">Nhập số điện thoại để nhận hàng</div>
+                <input class="payment-infor__input" type="number"></input>
+            </form>
+            <form class="payment-infor__wrap-note">
+                <div class="payment-infor__title">Ghi chú cho đơn hàng</div>
+                <input class="payment-infor__input"></input>
+            </form>
             <div class="payment-infor__title">Thông tin thanh toán</div>
             <div class="payment-infor__total">
                 <div class="payment-infor__text">Tổng tiền tạm tính</div>
@@ -117,6 +148,7 @@
         <div class="cart__btn-buy">
             Tiến hành thanh toán
         </div>
+        <div>@Session["slsp"]</div>
     </div>
 </div>
 

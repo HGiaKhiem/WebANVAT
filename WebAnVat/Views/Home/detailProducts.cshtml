@@ -224,9 +224,11 @@
         .then(response => response.json())
         .then(data => {
             console.log('Success:', data);
+            alert("Sản phẩm đã được thêm vào giỏ hàng")
         })
         .catch(error => {
             console.error('Error:', error);
+            alert("Có lỗi xảy ra khi thêm vào giỏ hàng")
         });
     });
 

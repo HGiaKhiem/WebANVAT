@@ -17,8 +17,8 @@ namespace WebAnVat.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NguoiMua()
         {
-            this.DonHang = new HashSet<DonHang>();
-            this.GioHang = new HashSet<GioHang>();
+            this.DonHangs = new HashSet<DonHang>();
+            this.GioHangs = new HashSet<GioHang>();
         }
     
         public int ID_NgMua { get; set; }
@@ -26,10 +26,11 @@ namespace WebAnVat.Models
         public string Sdt { get; set; }
         public string Email { get; set; }
         public string MatKhau { get; set; }
+        public string UserType { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DonHang> DonHang { get; set; }
+        public virtual ICollection<DonHang> DonHangs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GioHang> GioHang { get; set; }
+        public virtual ICollection<GioHang> GioHangs { get; set; }
     }
 }

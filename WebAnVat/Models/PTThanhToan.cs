@@ -17,13 +17,13 @@ namespace WebAnVat.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PTThanhToan()
         {
-            this.DonHang = new HashSet<DonHang>();
+            this.DonHangs = new HashSet<DonHang>();
         }
     
         public int ID_PhuongThuc { get; set; }
         public string TenPhuongPhuc { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DonHang> DonHang { get; set; }
+        public virtual ICollection<DonHang> DonHangs { get; set; }
     }
 }

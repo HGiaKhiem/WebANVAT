@@ -22,41 +22,56 @@ namespace WebAnVat.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(NguoiMua model)
+        public ActionResult Login(string email, string mk)
         {
-            if (ModelState.IsValid)
+            if(string.IsNullOrEmpty(email) || string.IsNullOrEmpty(mk))
             {
-                using (SqlConnection conn = new SqlConnection(conStr))
-                {
-                    conn.Open();
-                    string sql = "SELECT * FROM NguoiMua WHERE Email = @Email AND MatKhau = @MatKhau ";
-                    SqlCommand cmd = new SqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@Email", model.Email);
-                    cmd.Parameters.AddWithValue("@MatKhau", model.MatKhau);
+                ViewBag.Massage = "Tên đăng nhập hoặc mật khẩu không được để trống";
+                return View();
+            }    
+            NguoiMua user = null;
+            using (SqlConnection conn = new SqlConnection(conStr))
+            {
 
-                    SqlDataReader rd = cmd.ExecuteReader();
-                    if (rd.Read())
-                    {
-                        var user = new NguoiMua
-                        {
-                            Email = rd["Email"].ToString(),
-                            MatKhau = rd["MatKhau"].ToString()
-                        };
-                        Session["UserName"] = user.Email;
-                        return RedirectToAction("Index", "Home");
-                    }
+                conn.Open();
+                string sql = "SELECT * FROM NguoiMua WHERE Email = @Email AND MatKhau = @MatKhau ";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithValue("@MatKhau", mk);
+
+                SqlDataReader rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    user = new NguoiMua();
+                    user.ID_NgMua = int.Parse(rd.GetValue(0).ToString());
+                    user.Email = rd.GetValue(3).ToString();
+                    user.MatKhau = rd.GetValue(4).ToString();
+                }
+                if(user != null)
+                {
+                    Session["ID"] = user.ID_NgMua;
+                    return RedirectToAction("Index","Home");
+                }
+                else
+                {
+                    ViewBag.Message = "Đăng nhập không thành công";
+                    return View();
                 }
             }
-            ViewBag.Message = "Đăng nhập không thành công.";
-            return View(model);
+        }
+
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult Register()
         {
             return View();
         }
-        [HttpPost]
 
+        [HttpPost]
         public ActionResult Register(NguoiMua model, string confirmMatKhau)
         {
             if (model.MatKhau != confirmMatKhau)
@@ -167,8 +182,6 @@ namespace WebAnVat.Controllers
                 ViewBag.Message = $"Đã xảy ra lỗi khi gửi email: {ex.Message}";
             }
         }
-
-// them chu thich
-
     }
 }
+

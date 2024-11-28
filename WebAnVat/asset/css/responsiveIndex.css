@@ -1,0 +1,47 @@
+﻿
+/* (1) Small (sm) - ≥ 576px */
+@media (max-width: 767px) {
+  
+}
+
+/* (2) Medium (md) - ≥ 768px */
+@media (min-width: 768px) and (max-width: 991px){
+   
+}
+
+/*Css chung cho cả (1) và (2)*/
+@media (max-width: 991px){
+    .header {
+        border-bottom: 1px solid var(--product-boder);
+        box-shadow: var(--header-boxshadow);
+    }
+    .header__navbar{
+        height: 90px;
+    }
+    .header__menu {
+        display: none;
+    }
+
+    .header__navbar-right{
+        display: none;
+    }
+    .header__mobile-menu{
+        display: flex;
+    }
+    .header__navbar-left{
+        width: 100%;
+    }
+    .navbar-left__search {
+        width: 100%;
+        height: 50px;
+        border-radius: 25px;
+    }
+    .body{
+        margin-top: 120px;
+    }
+    .footer__box{
+        margin-top: 24px;
+    }
+}
+
+

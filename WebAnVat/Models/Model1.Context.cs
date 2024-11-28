@@ -13,10 +13,10 @@ namespace WebAnVat.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BanDoAnVatVer2Entities2 : DbContext
+    public partial class BanDoAnVatVer2Entities : DbContext
     {
-        public BanDoAnVatVer2Entities2()
-            : base("name=BanDoAnVatVer2Entities2")
+        public BanDoAnVatVer2Entities()
+            : base("name=BanDoAnVatVer2Entities")
         {
         }
     
@@ -25,17 +25,17 @@ namespace WebAnVat.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<ChiTietDonHang> ChiTietDonHangs { get; set; }
+        public virtual DbSet<ChiTietSize> ChiTietSizes { get; set; }
+        public virtual DbSet<ChiTietTopping> ChiTietToppings { get; set; }
         public virtual DbSet<CTMA_Size> CTMA_Size { get; set; }
         public virtual DbSet<CTMA_Topp> CTMA_Topp { get; set; }
-        public virtual DbSet<ChiTietDonHang> ChiTietDonHang { get; set; }
-        public virtual DbSet<ChiTietSize> ChiTietSize { get; set; }
-        public virtual DbSet<ChiTietTopping> ChiTietTopping { get; set; }
-        public virtual DbSet<DonHang> DonHang { get; set; }
-        public virtual DbSet<GioHang> GioHang { get; set; }
-        public virtual DbSet<LoaiMonAn> LoaiMonAn { get; set; }
-        public virtual DbSet<Mon> Mon { get; set; }
-        public virtual DbSet<NguoiMua> NguoiMua { get; set; }
-        public virtual DbSet<PTThanhToan> PTThanhToan { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<DonHang> DonHangs { get; set; }
+        public virtual DbSet<GioHang> GioHangs { get; set; }
+        public virtual DbSet<LoaiMonAn> LoaiMonAns { get; set; }
+        public virtual DbSet<Mon> Mons { get; set; }
+        public virtual DbSet<NguoiMua> NguoiMuas { get; set; }
+        public virtual DbSet<PTThanhToan> PTThanhToans { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

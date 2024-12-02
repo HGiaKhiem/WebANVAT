@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Web.Helpers;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Data.Entity;
 
 namespace WebAnVat.Controllers
 {
@@ -191,7 +192,8 @@ namespace WebAnVat.Controllers
             List<loadCart> ds = new List<loadCart>();
             string query = "select * from GioHang g join Mon m on g.ID_Mon = m.ID_Mon where ID_NgMua = @idUser";
             int idUser = Convert.ToInt32(Session["ID"]);
-            var sum = 0;
+            decimal sum = 0;
+           
             int slsp = 0;
             using (SqlConnection conn = new SqlConnection(conStr))
             {
@@ -214,9 +216,9 @@ namespace WebAnVat.Controllers
                     a.ID_LoaiMonAn = int.Parse(rd.GetValue(13).ToString());
                     a.Img = rd.GetValue(14).ToString();
 
-                    int priceNum = int.Parse(rd.GetValue(16).ToString());
-                    a.price = priceNum.ToString("N0");
-                    sum = sum + priceNum;
+                    decimal priceNum = decimal.Parse(rd.GetValue(16).ToString());
+                    a.price = TinhTien(a.ID_GioHang, a.Size)+ priceNum;
+                    sum += a.price;
                     ds.Add(a);
                 }
             }
@@ -225,12 +227,54 @@ namespace WebAnVat.Controllers
             var tamtinh = sum;
             //Tổng tiền sau khi đã cộng phí ship
             var thanhtien = sum + 15000;
-
+          
             ViewBag.tamtinh = tamtinh.ToString("N0");
             ViewBag.thanhtien = thanhtien.ToString("N0");
             return View(ds);
         }
+        public decimal TinhTien(int id_giohang,string size )
+        {
+            string querytopping = "SELECT ID_GioHang,JSONData.Name,JSONData.Quantity,t.GiaTopp FROM GioHang g CROSS APPLY  " +
+                "OPENJSON(COALESCE(Topping, '[]'))  WITH (Name NVARCHAR(100),Quantity INT) AS JSONData join ChiTietTopping t on  JSONData.Name=t.Ten_Topping " +
+                "where ID_GioHang=@id_giohang";
+            decimal price_topping=0;
+            using (SqlConnection conn1 = new SqlConnection(conStr))
+            {
+                conn1.Open();
+                using (SqlCommand cmd=new SqlCommand(querytopping,conn1))
+                {
+                    cmd.Parameters.AddWithValue("@id_giohang", id_giohang);
+                    using (SqlDataReader rd=cmd.ExecuteReader())
+                    {
+                        while (rd.Read())
+                        {
+                            int soluong= int.Parse(rd.GetValue(2).ToString());
+                            decimal gia= decimal.Parse(rd.GetValue(3).ToString());
+                            price_topping += (soluong * gia);
+                        }
+                    }
+                }
+            }
 
+            string querysize = "select GiaTang from ChiTietSize where Loai_size=@size";
+            decimal price_size=0;
+            using (SqlConnection conn2 = new SqlConnection(conStr))
+            {
+                conn2.Open();
+                using (SqlCommand cmd = new SqlCommand(querysize, conn2))
+                {
+                    cmd.Parameters.AddWithValue("@size", size);
+                    using (SqlDataReader rd = cmd.ExecuteReader())
+                    {
+                        while (rd.Read())
+                        {
+                            price_size= rd.GetDecimal(0);
+                        }
+                    }
+                }
+            }
+            return price_topping + price_size;
+        }
         public ActionResult mobileFilterFood()
         {
             List<Mon> ds = new List<Mon>();

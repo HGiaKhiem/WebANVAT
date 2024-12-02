@@ -64,7 +64,7 @@
                                     <i class="fa-solid fa-id-card"></i>
                                     <span>Thông tin cá nhân</span>
                                 </a>
-                                <a href="" class="user-menu__content">
+                                <a href="@Url.Action("loadCart","Home")" class="user-menu__content">                                  
                                     <i class="fa-solid fa-cart-shopping"></i>
                                     <span>Đơn hàng</span>
                                 </a>
@@ -127,7 +127,7 @@
                         </div>
                     </li>
 
-                    <li class="header__menu-item nav-item">
+                    @*<li class="header__menu-item nav-item">
                         <a class="header__menu-link nav-link" href="#">
                             sản phẩm đóng gói
                         </a>
@@ -159,7 +159,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </li>
+                    </li>*@
                     <li class="header__menu-item nav-item">
                         <a class="header__menu-link nav-link" href="#">
                             về chúng tôi
@@ -202,8 +202,8 @@
                     </li>
 
                     <li class="header__menu-item nav-item">
-                        <a class="header__menu-link nav-link" href="@Url.Action("Login","Account")">
-                            hội viên
+                        <a class="header__menu-link nav-link" href="@Url.Action("Register","Account")">
+                            Tạo tài khoản
                         </a>
                     </li>
                 </ul>

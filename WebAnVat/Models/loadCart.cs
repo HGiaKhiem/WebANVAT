@@ -11,7 +11,7 @@ namespace WebAnVat.Models
         public int ID_Mon { get; set; }
         public int ID_LoaiMonAn { get; set; }
         public string Img { get; set; }
-        public string price { get; set; }
+        public decimal price { get; set; }
         public string Name { get; set; }
         public int Quantity { get; set; }
         public string Size { get; set; }

@@ -59,8 +59,19 @@
                             <div class="cart__in4-option">
                                 Kích cỡ: @i.Size, Ngọt: @i.Sweet, Trà: @i.Tea, Đá: @i.Ice, Số lượng: @i.Quantity
                                 <br />
-                                topping: @i.Topping
+                                topping:
+                                <ul id="topping-drink-list-@i.ID_Mon"></ul>
+                                <script>
+                                    const toppings = @Html.Raw(i.Topping);
+                                    const listElement = document.getElementById("topping-drink-list-@i.ID_Mon");
+                                    toppings.forEach(topping => {
+                                        const li = document.createElement("li");
+                                        li.textContent = `${topping.Name}: ${topping.Quantity}`;
+                                        listElement.appendChild(li);
+                                    });
+                                </script>
                             </div>
+                            
                             <div class="cart__in4-price">
                                 @i.price<span>đ</span>
                             </div>
@@ -88,7 +99,17 @@
                             <div class="cart__in4-option">
                                 Kích cỡ: @i.Size, Số lượng: @i.Quantity
                                 <br />
-                                topping: @i.Topping
+                                topping:
+                                <ul id="topping-anvat-list-@i.ID_Mon"></ul>
+                                <script>
+                                     const toppings = @Html.Raw(i.Topping);
+                                     const listElement = document.getElementById("topping-anvat-list-@i.ID_Mon");
+                                     toppings.forEach(topping => {
+                                         const li = document.createElement("li");
+                                         li.textContent = `${topping.Name}: ${topping.Quantity}`;
+                                         listElement.appendChild(li);
+                                     });
+                                </script>
                             </div>
                             <div class="cart__in4-price">
                                 @i.price<span>đ</span>
@@ -133,6 +154,7 @@
                 <div class="payment-infor__text">Tổng tiền (Đã có VAT)</div>
                 <div class="payment-infor__price payment-infor__price--active">@(ViewBag.thanhtien)<span>đ</span></div>
             </div>
+            
         </div>
 
         <div class="cart__payment-method">

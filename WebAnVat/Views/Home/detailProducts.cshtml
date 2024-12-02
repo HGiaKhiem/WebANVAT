@@ -176,12 +176,14 @@
                     Thêm vào giỏ hàng:
                 </div>
                 <div class="wrapBtnAddCart__price">
-                    45.000đ
+                    60.000đ
                 </div>
             </button>
         </div>
     </div>
 </div>
+<div id="jsonPreview"></div>
+
 
 <!-- Thêm jQuery trước các script khác sử dụng jQuery -->
 
@@ -200,7 +202,7 @@
         else if (@Model.ID_LoaiMonAn == 101 || @Model.ID_LoaiMonAn == 102) {
             productData.Sweet = document.querySelector("#sweet .wrapDetail__btn.active").textContent
             productData.Tea = document.querySelector("#tea .wrapDetail__btn.active").textContent
-            productData.Ice = document.querySelector("#tea .wrapDetail__btn.active").textContent
+            productData.Ice = document.querySelector("#ice .wrapDetail__btn.active").textContent
             productData.Topping = getTopping()
         }
         else if (@Model.ID_LoaiMonAn == 103) {
@@ -213,6 +215,8 @@
 
         const jsonProductData = JSON.stringify(productData);
         console.log(jsonProductData)
+        //
+        document.getElementById("jsonPreview").textContent = jsonProductData;
 
         fetch('@Url.Action("addToCart", "Home")', {
             method: 'POST',

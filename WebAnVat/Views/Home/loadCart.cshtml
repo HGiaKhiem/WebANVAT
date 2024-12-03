@@ -127,20 +127,33 @@
                 }
             }
         </div>
+       
+        <form class="cart__payment-infor" action="@Url.Action("Pay","Cart")" method="post">
+            <div class="payment-infor__wrap-address">
+                <label class="payment-infor__title" for="diachi">Địa chỉ nhận hàng: </label>
+                <input class="payment-infor__input" type="text" name="DiaChi" id="diachi" required />
+            </div>
+            <div class="payment-infor__wrap-address">
+                <label class="payment-infor__title" for="dienthoai">Số điện thoại để nhận hàng</label>
+                <input class="payment-infor__input" type="number" name="DienThoai" id="dienthoai" required />
+            </div>
+            <div class="payment-infor__wrap-note">
+                <label class="payment-infor__title" for="ghichu">Ghi chú cho đơn hàng</label>
+                <input class="payment-infor__input" type="text" name="GhiChu" id="ghichu" required />
+            </div>
 
-        <div class="cart__payment-infor">
-            <form class="payment-infor__wrap-address">
-                <div class="payment-infor__title">Nhập địa chỉ để nhận hàng</div>
-                <input class="payment-infor__input"></input>
-            </form>
-            <form class="payment-infor__wrap-address">
-                <div class="payment-infor__title">Nhập số điện thoại để nhận hàng</div>
-                <input class="payment-infor__input" type="number"></input>
-            </form>
-            <form class="payment-infor__wrap-note">
-                <div class="payment-infor__title">Ghi chú cho đơn hàng</div>
-                <input class="payment-infor__input"></input>
-            </form>
+            <label class="payment-method__title">Phương thức thanh toán</label>
+            <div class="payment-method__option">
+                <select class="form-select" aria-label="Default select example" name="PTThanhToan">
+                    <option value="100">Thanh toán trực tiếp</option>
+                    <option value="101">Thanh toán bằng thẻ ngân hàng</option>
+                </select>
+            </div>
+            @*<form class="payment-infor__wrap-date">
+            <label class="payment-infor__title" for="ngaynhan">Chọn ngày tháng năm nhận hàng</label>
+            <input class="payment-infor__input" type="date" name="NgayNhan" id="ngaynhan" required />
+        </form>*@
+
             <div class="payment-infor__title">Thông tin thanh toán</div>
             <div class="payment-infor__total">
                 <div class="payment-infor__text">Tổng tiền tạm tính</div>
@@ -154,22 +167,14 @@
                 <div class="payment-infor__text">Tổng tiền (Đã có VAT)</div>
                 <div class="payment-infor__price payment-infor__price--active">@(ViewBag.thanhtien)<span>đ</span></div>
             </div>
-            
-        </div>
+            <button type="submit" class="cart__btn-buy d-flex">
+                Thanh Toán
+            </button>
+        </form>
 
-        <div class="cart__payment-method">
-            <div class="payment-method__title">Phương thức thanh toán</div>
-            <from class="payment-method__option">
-                <select class="form-select" aria-label="Default select example">
-                    <option value="1">Thanh toán trực tiếp</option>
-                    <option value="2">Thanh toán bằng thẻ ngân hàng</option>
-                </select>
-            </from>
-        </div>
+        
 
-        <div class="cart__btn-buy">
-            Tiến hành thanh toán
-        </div>
+        
         <div>@Session["slsp"]</div>
     </div>
 </div>

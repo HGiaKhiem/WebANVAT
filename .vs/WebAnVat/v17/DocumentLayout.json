@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\DoAn_BanDoAnVat\\WebANVAT\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|C:\\DoAn_BanDoAnVat\\WebANVAT\\webanvat\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|solutionrelative:webanvat\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|C:\\DoAn_BanDoAnVat\\WebANVAT\\webanvat\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|solutionrelative:webanvat\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|c:\\doan_bandoanvat\\webanvat\\webanvat\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|solutionrelative:webanvat\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|C:\\DoAn_BanDoAnVat\\WebANVAT\\webanvat\\views\\home\\loadcart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|solutionrelative:webanvat\\views\\home\\loadcart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -11,36 +23,24 @@
       "RelativeMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|solutionrelative:webanvat\\models\\loadcart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|c:\\doan_bandoanvat\\webanvat\\webanvat\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|solutionrelative:webanvat\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|C:\\DoAn_BanDoAnVat\\WebANVAT\\webanvat\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|solutionrelative:webanvat\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|C:\\DoAn_BanDoAnVat\\WebANVAT\\webanvat\\views\\home\\detailproducts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|solutionrelative:webanvat\\views\\home\\detailproducts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|C:\\DoAn_BanDoAnVat\\WebANVAT\\webanvat\\models\\productdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|solutionrelative:webanvat\\models\\productdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|C:\\DoAn_BanDoAnVat\\WebANVAT\\webanvat\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|solutionrelative:webanvat\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|C:\\DoAn_BanDoAnVat\\WebANVAT\\webanvat\\asset\\css\\detailproducts.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|solutionrelative:webanvat\\asset\\css\\detailproducts.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|C:\\DoAn_BanDoAnVat\\WebANVAT\\webanvat\\views\\shared\\_primarylayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|solutionrelative:webanvat\\views\\shared\\_primarylayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|C:\\DoAn_BanDoAnVat\\WebANVAT\\webanvat\\views\\home\\searchbyname.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|solutionrelative:webanvat\\views\\home\\searchbyname.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|C:\\DoAn_BanDoAnVat\\WebANVAT\\webanvat\\asset\\css\\base.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|solutionrelative:webanvat\\asset\\css\\base.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|C:\\DoAn_BanDoAnVat\\WebANVAT\\webanvat\\asset\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|solutionrelative:webanvat\\asset\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|C:\\DoAn_BanDoAnVat\\WebANVAT\\webanvat\\views\\shared\\_primarylayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CD95E695-122C-4EB4-88E8-BBC533E92A62}|WebAnVat\\WebAnVat.csproj|solutionrelative:webanvat\\views\\shared\\_primarylayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,11 +50,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "_primaryLayout.cshtml",
               "DocumentMoniker": "C:\\DoAn_BanDoAnVat\\WebANVAT\\WebAnVat\\Views\\shared\\_primaryLayout.cshtml",
               "RelativeDocumentMoniker": "WebAnVat\\Views\\shared\\_primaryLayout.cshtml",
@@ -75,27 +75,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "detailProducts.cshtml",
-              "DocumentMoniker": "C:\\DoAn_BanDoAnVat\\WebANVAT\\WebAnVat\\Views\\Home\\detailProducts.cshtml",
-              "RelativeDocumentMoniker": "WebAnVat\\Views\\Home\\detailProducts.cshtml",
-              "ToolTip": "C:\\DoAn_BanDoAnVat\\WebANVAT\\WebAnVat\\Views\\Home\\detailProducts.cshtml",
-              "RelativeToolTip": "WebAnVat\\Views\\Home\\detailProducts.cshtml",
-              "ViewState": "AgIAAP8AAAAAAAAAAAAnwPEAAAAbAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "searchByName.cshtml",
+              "DocumentMoniker": "C:\\DoAn_BanDoAnVat\\WebANVAT\\WebAnVat\\Views\\Home\\searchByName.cshtml",
+              "RelativeDocumentMoniker": "WebAnVat\\Views\\Home\\searchByName.cshtml",
+              "ToolTip": "C:\\DoAn_BanDoAnVat\\WebANVAT\\WebAnVat\\Views\\Home\\searchByName.cshtml",
+              "RelativeToolTip": "WebAnVat\\Views\\Home\\searchByName.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-01T12:08:57.945Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "detailProducts.css",
-              "DocumentMoniker": "C:\\DoAn_BanDoAnVat\\WebANVAT\\WebAnVat\\asset\\css\\detailProducts.css",
-              "RelativeDocumentMoniker": "WebAnVat\\asset\\css\\detailProducts.css",
-              "ToolTip": "C:\\DoAn_BanDoAnVat\\WebANVAT\\WebAnVat\\asset\\css\\detailProducts.css",
-              "RelativeToolTip": "WebAnVat\\asset\\css\\detailProducts.css",
-              "ViewState": "AgIAAGMAAAAAAAAAAAAAAMUAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-10-30T14:01:39.113Z"
+              "WhenOpened": "2024-12-03T03:39:32.515Z"
             },
             {
               "$type": "Document",
@@ -105,82 +93,97 @@
               "RelativeDocumentMoniker": "WebAnVat\\asset\\css\\base.css",
               "ToolTip": "C:\\DoAn_BanDoAnVat\\WebANVAT\\WebAnVat\\asset\\css\\base.css",
               "RelativeToolTip": "WebAnVat\\asset\\css\\base.css",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAACIAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-10-20T13:34:08.993Z"
+              "WhenOpened": "2024-12-03T03:32:00.537Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "style.css",
-              "DocumentMoniker": "C:\\DoAn_BanDoAnVat\\WebANVAT\\WebAnVat\\asset\\css\\style.css",
-              "RelativeDocumentMoniker": "WebAnVat\\asset\\css\\style.css",
-              "ToolTip": "C:\\DoAn_BanDoAnVat\\WebANVAT\\WebAnVat\\asset\\css\\style.css",
-              "RelativeToolTip": "WebAnVat\\asset\\css\\style.css",
-              "ViewState": "AgIAAGMCAAAAAAAAAAAAAH8CAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-10-20T11:35:54.441Z"
+              "DocumentIndex": 6,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\DoAn_BanDoAnVat\\WebANVAT\\WebAnVat\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "WebAnVat\\Views\\Account\\Register.cshtml",
+              "ToolTip": "C:\\DoAn_BanDoAnVat\\WebANVAT\\WebAnVat\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "WebAnVat\\Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABgAAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-02T18:20:41.36Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "C:\\DoAn_BanDoAnVat\\WebANVAT\\WebAnVat\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "WebAnVat\\Controllers\\CartController.cs",
+              "ToolTip": "C:\\DoAn_BanDoAnVat\\WebANVAT\\WebAnVat\\Controllers\\CartController.cs*",
+              "RelativeToolTip": "WebAnVat\\Controllers\\CartController.cs*",
+              "ViewState": "AgIAADkAAAAAAAAAAAAgwEsAAABwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T17:01:27.128Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "detailProducts.cshtml",
+              "DocumentMoniker": "C:\\DoAn_BanDoAnVat\\WebANVAT\\WebAnVat\\Views\\Home\\detailProducts.cshtml",
+              "RelativeDocumentMoniker": "WebAnVat\\Views\\Home\\detailProducts.cshtml",
+              "ToolTip": "C:\\DoAn_BanDoAnVat\\WebANVAT\\WebAnVat\\Views\\Home\\detailProducts.cshtml",
+              "RelativeToolTip": "WebAnVat\\Views\\Home\\detailProducts.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAPEAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-01T12:08:57.945Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\DoAn_BanDoAnVat\\WebANVAT\\WebAnVat\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "WebAnVat\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\DoAn_BanDoAnVat\\WebANVAT\\WebAnVat\\Controllers\\HomeController.cs",
               "RelativeToolTip": "WebAnVat\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAALoAAAAAAAAAAAAYwMMAAAALAAAAAAAAAA==",
+              "ViewState": "AgIAALsAAAAAAAAAAADwv8sAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-20T08:19:10.652Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\DoAn_BanDoAnVat\\WebANVAT\\WebAnVat\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "WebAnVat\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\DoAn_BanDoAnVat\\WebANVAT\\WebAnVat\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "WebAnVat\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-12-01T10:45:24.773Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "loadCart.cs",
               "DocumentMoniker": "C:\\DoAn_BanDoAnVat\\WebANVAT\\WebAnVat\\Models\\loadCart.cs",
               "RelativeDocumentMoniker": "WebAnVat\\Models\\loadCart.cs",
               "ToolTip": "C:\\DoAn_BanDoAnVat\\WebANVAT\\WebAnVat\\Models\\loadCart.cs",
               "RelativeToolTip": "WebAnVat\\Models\\loadCart.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-21T06:26:11.331Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "productData.cs",
-              "DocumentMoniker": "C:\\DoAn_BanDoAnVat\\WebANVAT\\WebAnVat\\Models\\productData.cs",
-              "RelativeDocumentMoniker": "WebAnVat\\Models\\productData.cs",
-              "ToolTip": "C:\\DoAn_BanDoAnVat\\WebANVAT\\WebAnVat\\Models\\productData.cs",
-              "RelativeToolTip": "WebAnVat\\Models\\productData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T11:16:53.671Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "loadCart.cshtml",
               "DocumentMoniker": "C:\\DoAn_BanDoAnVat\\WebANVAT\\WebAnVat\\Views\\Home\\loadCart.cshtml",
               "RelativeDocumentMoniker": "WebAnVat\\Views\\Home\\loadCart.cshtml",
               "ToolTip": "C:\\DoAn_BanDoAnVat\\WebANVAT\\WebAnVat\\Views\\Home\\loadCart.cshtml",
               "RelativeToolTip": "WebAnVat\\Views\\Home\\loadCart.cshtml",
-              "ViewState": "AgIAAF4AAAAAAAAAAAAYwHAAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAiwJ0AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-11-21T06:48:36.891Z",
               "EditorCaption": ""

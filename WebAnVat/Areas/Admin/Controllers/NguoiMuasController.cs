@@ -105,15 +105,42 @@ namespace WebAnVat.Areas.Admin.Controllers
         }
 
         // POST: Admin/NguoiMuas/Delete/5
+        // POST: Admin/NguoiMuas/Delete/5
+        // POST: Admin/NguoiMuas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             NguoiMua nguoiMua = db.NguoiMuas.Find(id);
-            db.NguoiMuas.Remove(nguoiMua);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+
+            if (nguoiMua.DonHangs.Count > 0)
+            {
+                TempData["ErrorMessage"] = "Không thể xóa người mua vì họ đã có đơn hàng.";
+                return RedirectToAction("Delete", new { id }); 
+            }
+
+            if (nguoiMua.GioHangs.Count > 0)
+            {
+                db.GioHangs.RemoveRange(nguoiMua.GioHangs);
+                db.SaveChanges();
+
+                db.NguoiMuas.Remove(nguoiMua);
+                db.SaveChanges();
+
+                TempData["SuccessMessage"] = "Xóa người mua và giỏ hàng thành công!";
+            }
+            else
+            {
+                db.NguoiMuas.Remove(nguoiMua);
+                db.SaveChanges();
+
+                TempData["SuccessMessage"] = "Xóa người mua thành công!";
+            }
+
+            return RedirectToAction("Index");  
         }
+
+
 
         protected override void Dispose(bool disposing)
         {

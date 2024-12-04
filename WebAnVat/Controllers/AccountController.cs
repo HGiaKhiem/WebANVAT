@@ -126,15 +126,14 @@ namespace WebAnVat.Controllers
 
         public ActionResult ForgetPW()
         {
-            return View();  // Hiển thị trang quên mật khẩu
+            return View();  
         }
 
         [HttpPost]
         public ActionResult ForgetPW(NguoiMua model)
         {
-            if (ModelState.IsValid)  // Kiểm tra tính hợp lệ của model
+            if (ModelState.IsValid)  
             {
-                // Kiểm tra xem email có tồn tại trong cơ sở dữ liệu không
                 using (SqlConnection conn = new SqlConnection(conStr))
                 {
                     conn.Open();
@@ -149,17 +148,15 @@ namespace WebAnVat.Controllers
                         return View();  // Nếu không tìm thấy email trong cơ sở dữ liệu
                     }
 
-                    // Tạo mã xác thực hoặc liên kết khôi phục mật khẩu
                     string resetToken = Guid.NewGuid().ToString();  // Sử dụng GUID làm mã xác thực
                     string resetLink = Url.Action("ResetPW", "Account", new { token = resetToken }, Request.Url.Scheme);
 
-                    // Gửi email khôi phục mật khẩu
                     SendResetPasswordEmail(model.Email, resetLink);
                     ViewBag.Message = "Liên kết khôi phục mật khẩu đã được gửi đến email của bạn.";
                 }
             }
 
-            return View();  // Trả lại View nếu có lỗi hoặc thông báo
+            return View(); 
         }
 
         private void SendResetPasswordEmail(string email, string resetLink)

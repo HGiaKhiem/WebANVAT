@@ -107,7 +107,6 @@
                 }
                 else
                 {
-
                     <div class="navbar-right__user">
                         <i class="fa-regular fa-user"></i>
                         <div class="navbar-right__user-menu">
@@ -119,6 +118,13 @@
                                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                                 <span>Đăng xuất</span>
                             </a>
+                            @if (Session["UserType"] != null && Session["UserType"].ToString() == "Admin")
+                            {
+                                <a href="@Url.Action("Index", "Mons", new { area = "Admin" })" class="user-menu__content">
+                                    <i class="fa-solid fa-cogs"></i>
+                                    <span>Quản trị</span>
+                                </a>
+                            }
                         </div>
                     </div>
                 }
@@ -134,9 +140,81 @@
                 <li class="header__menu-item nav-item">
                     <a class="header__menu-link nav-link" href="#">
                         menu
-                    </a>                     
+                    </a>
+                    <div class="header__box">
+                        <ul class="header__box-left">
+                            <a href="#" class="header__box-text">Thức uống</a>
+
+                            <li class="header__box-item">
+                                <a href="#" class="header__box-link">Trà trái cây</a>
+                            </li>
+
+                            <li class="header__box-item">
+                                <a href="#" class="header__box-link">Trà sữa</a>
+                            </li>
+
+                            <li class="header__box-item">
+                                <a href="#" class="header__box-link">Cà phê</a>
+                            </li>
+
+                            <li class="header__box-item">
+                                <a href="#" class="header__box-link">Đá xay</a>
+                            </li>
+                        </ul>
+
+                        <ul class="header__box-right">
+                            <a href="#" class="header__box-text">Bánh</a>
+
+                            <li class="header__box-item">
+                                <a href="#" class="header__box-link">Bánh lạnh</a>
+                            </li>
+
+                            <li class="header__box-item">
+                                <a href="#" class="header__box-link">Bánh cookies - croissant</a>
+                            </li>
+
+                            <li class="header__box-item">
+                                <a href="#" class="header__box-link">Bánh mì</a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
 
+               
+                <li class="header__menu-item nav-item">
+                    <a class="header__menu-link nav-link" href="#">
+                        về chúng tôi
+                    </a>
+                    <div class="header__box">
+                        <ul class="header__box-left">
+                            <a href="#" class="header__box-text">Trà</a>
+
+                            <li class="header__box-item">
+                                <a href="#" class="header__box-link">Trà hộp giấy</a>
+                            </li>
+
+                            <li class="header__box-item">
+                                <a href="#" class="header__box-link">Trà gói cao cấp</a>
+                            </li>
+
+                            <li class="header__box-item">
+                                <a href="#" class="header__box-link">Cà túi lọc</a>
+                            </li>
+
+                            <li class="header__box-item">
+                                <a href="#" class="header__box-link">Trà túi tam giá</a>
+                            </li>
+                        </ul>
+
+                        <ul class="header__box-right">
+                            <a href="#" class="header__box-text">Cà phê</a>
+
+                            <li class="header__box-item">
+                                <a href="#" class="header__box-link">Cà phê hạt không bơ</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
 
                 <li class="header__menu-item nav-item">
                     <a class="header__menu-link nav-link" href="#">

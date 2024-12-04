@@ -7,7 +7,8 @@ namespace WebAnVat.Models
 {
     public class productData
     {
-        public int Id { get; set; }
+        public int ID_Mon { get; set; }
+        public int ID_LoaiMonAn { get; set; }
         public string Img { get; set; }
         public string Name { get; set; }
         public int Quantity { get; set; }
@@ -15,6 +16,7 @@ namespace WebAnVat.Models
         public string Sweet { get; set; }
         public string Tea { get; set; }
         public string Ice { get; set; }
+        public decimal Price { get; set; }
         public List<toppingData> Topping { get; set; }
     }
 

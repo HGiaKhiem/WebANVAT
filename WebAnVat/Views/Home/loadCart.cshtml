@@ -5,7 +5,7 @@
 }
 
 @using WebAnVat.Models
-@model List<loadCart>
+@model List<productData>
 
 <div class="body container">
     <div class="cart">
@@ -33,14 +33,14 @@
                                 Kích cỡ: @i.Size, Ngọt: @i.Sweet, Đá: @i.Ice, Số lượng: @i.Quantity
                             </div>
                             <div class="cart__in4-price">
-                                @i.price<span>đ</span>
+                                @i.Price<span>đ</span>
                             </div>
                         </div>
                         <div class="cart__wrap-btns">
-                            <a href="@Url.Action("editItem","Cart", new {ID_GioHang = i.ID_GioHang, ID_Mon = i.ID_Mon})" class="cart__btn-edit" title="Sửa">
+                            <a href="" class="cart__btn-edit" title="Sửa">
                                 <i class="fa-solid fa-pen"></i>
                             </a>
-                            <a href="@Url.Action("deleteItem","Cart", new {ID_GioHang = i.ID_GioHang})" class="cart__btn-delete">
+                            <a href="" class="cart__btn-delete">
                                 <i class="fa-solid fa-trash-can" title="Xóa"></i>
                             </a>
                         </div>
@@ -60,27 +60,21 @@
                                 Kích cỡ: @i.Size, Ngọt: @i.Sweet, Trà: @i.Tea, Đá: @i.Ice, Số lượng: @i.Quantity
                                 <br />
                                 topping:
-                                <ul id="topping-drink-list-@i.ID_Mon"></ul>
-                                <script>
-                                    const toppings = @Html.Raw(i.Topping);
-                                    const listElement = document.getElementById("topping-drink-list-@i.ID_Mon");
-                                    toppings.forEach(topping => {
-                                        const li = document.createElement("li");
-                                        li.textContent = `${topping.Name}: ${topping.Quantity}`;
-                                        listElement.appendChild(li);
-                                    });
-                                </script>
+                                @foreach(var item in i.Topping)
+                                {
+                                   <div>@item.Name : @item.Quantity</div>
+                                }
                             </div>
                             
                             <div class="cart__in4-price">
-                                @i.price<span>đ</span>
+                                @i.Price<span>đ</span>
                             </div>
                         </div>
                         <div class="cart__wrap-btns">
-                            <a href="@Url.Action("editItem","Cart", new {ID_GioHang = i.ID_GioHang, ID_Mon = i.ID_Mon})" class="cart__btn-edit" title="Sửa">
+                            <a href="" class="cart__btn-edit" title="Sửa">
                                 <i class="fa-solid fa-pen"></i>
                             </a>
-                            <a href="@Url.Action("deleteItem","Cart", new {ID_GioHang = i.ID_GioHang})" class="cart__btn-delete">
+                            <a href="" class="cart__btn-delete">
                                 <i class="fa-solid fa-trash-can" title="Xóa"></i>
                             </a>
                         </div>
@@ -100,26 +94,20 @@
                                 Kích cỡ: @i.Size, Số lượng: @i.Quantity
                                 <br />
                                 topping:
-                                <ul id="topping-anvat-list-@i.ID_Mon"></ul>
-                                <script>
-                                     const toppings = @Html.Raw(i.Topping);
-                                     const listElement = document.getElementById("topping-anvat-list-@i.ID_Mon");
-                                     toppings.forEach(topping => {
-                                         const li = document.createElement("li");
-                                         li.textContent = `${topping.Name}: ${topping.Quantity}`;
-                                         listElement.appendChild(li);
-                                     });
-                                </script>
+                                @foreach (var item in i.Topping)
+                                {
+                                    <div>@item.Name : @item.Quantity</div>
+                                }
                             </div>
                             <div class="cart__in4-price">
-                                @i.price<span>đ</span>
+                                @i.Price<span>đ</span>
                             </div>
                         </div>
                         <div class="cart__wrap-btns">
-                            <a href="@Url.Action("editItem","Cart", new {ID_GioHang = i.ID_GioHang, ID_Mon = i.ID_Mon})" class="cart__btn-edit" title="Sửa">
+                            <a href="" class="cart__btn-edit" title="Sửa">
                                 <i class="fa-solid fa-pen"></i>
                             </a>
-                            <a href="@Url.Action("deleteItem","Cart", new {ID_GioHang = @i.ID_GioHang})" class="cart__btn-delete">
+                            <a href="" class="cart__btn-delete">
                                 <i class="fa-solid fa-trash-can" title="Xóa"></i>
                             </a>
                         </div>
@@ -133,10 +121,12 @@
                 <label class="payment-infor__title" for="diachi">Địa chỉ nhận hàng: </label>
                 <input class="payment-infor__input" type="text" name="DiaChi" id="diachi" required />
             </div>
+
             <div class="payment-infor__wrap-address">
                 <label class="payment-infor__title" for="dienthoai">Số điện thoại để nhận hàng</label>
                 <input class="payment-infor__input" type="number" name="DienThoai" id="dienthoai" required />
             </div>
+
             <div class="payment-infor__wrap-note">
                 <label class="payment-infor__title" for="ghichu">Ghi chú cho đơn hàng</label>
                 <input class="payment-infor__input" type="text" name="GhiChu" id="ghichu" required />
@@ -149,10 +139,6 @@
                     <option value="101">Thanh toán bằng thẻ ngân hàng</option>
                 </select>
             </div>
-            @*<form class="payment-infor__wrap-date">
-            <label class="payment-infor__title" for="ngaynhan">Chọn ngày tháng năm nhận hàng</label>
-            <input class="payment-infor__input" type="date" name="NgayNhan" id="ngaynhan" required />
-        </form>*@
 
             <div class="payment-infor__title">Thông tin thanh toán</div>
             <div class="payment-infor__total">
@@ -161,7 +147,7 @@
             </div>
             <div class="payment-infor__ship">
                 <div class="payment-infor__text">Phí vận chuyển</div>
-                <div class="payment-infor__price">15.000đ</div>
+                <div class="payment-infor__price">@ViewBag.PhiGH<span>đ</span></div>
             </div>
             <div class="payment-infor__result">
                 <div class="payment-infor__text">Tổng tiền (Đã có VAT)</div>
@@ -171,6 +157,13 @@
                 Thanh Toán
             </button>
         </form>
+            @*<form class="payment-infor__wrap-date">
+            <label class="payment-infor__title" for="ngaynhan">Chọn ngày tháng năm nhận hàng</label>
+            <input class="payment-infor__input" type="date" name="NgayNhan" id="ngaynhan" required />
+            </form>*@
+
+
+
 
         
 

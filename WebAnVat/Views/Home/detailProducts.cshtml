@@ -239,17 +239,24 @@
 
 
     //Lấy ra các phần chung của 1 sản phẩm
+    console.log("Running getGeneralData...");
     function getGeneralData()
     {
-        const idMon = Number(document.querySelector(".wrapDetail__num").textContent)
-        const nameMon = document.querySelector(".wrapDetail__name").textContent
+        const idMon =@Model.ID_Mon;
+        const idLoaiMonAn = @Model.ID_LoaiMonAn;
+        const nameMon = "@Html.Raw(Model.TenMon)";
         const slMon = document.querySelector("#counter1 .number").textContent
         const sizeMon = document.querySelector(".wrapDetail__btnSize.active .btnSize__text").textContent
+        const img ="@Model.HinhAnh";
+        const price=@Model.GiaSauKhiGiam;
         const generalData = {
-            Id: idMon,
+            ID_Mon: idMon,
+            ID_LoaiMonAn: idLoaiMonAn,
             Name: nameMon,
             Quantity: slMon,
-            Size: sizeMon
+            Size: sizeMon,
+            Img: img,
+            Price:price
         };
         return generalData
     }
@@ -263,7 +270,7 @@
             const slTopp = item.querySelector(".counter .number").textContent
             allTopping.push({ Name: nameTopp, Quantity: slTopp })
         })
-        return allTopping
+        return allTopping;
     }
 
 

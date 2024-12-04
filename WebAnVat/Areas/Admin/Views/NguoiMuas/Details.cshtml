@@ -5,55 +5,61 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Details</h2>
+<h2 class="text-center my-4 text-primary">Chi Tiết Người Mua</h2>
 
-<div>
-    <h4>NguoiMua</h4>
+<div class="container mt-4">
+    <h4 class="mb-3">Thông Tin Người Mua</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Ten)
-        </dt>
 
-        <dd>
+    <div class="row mb-3">
+        <div class="col-md-3">
+            <strong>@Html.DisplayNameFor(model => model.Ten)</strong>
+        </div>
+        <div class="col-md-9">
             @Html.DisplayFor(model => model.Ten)
-        </dd>
+        </div>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Sdt)
-        </dt>
-
-        <dd>
+    <div class="row mb-3">
+        <div class="col-md-3">
+            <strong>@Html.DisplayNameFor(model => model.Sdt)</strong>
+        </div>
+        <div class="col-md-9">
             @Html.DisplayFor(model => model.Sdt)
-        </dd>
+        </div>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
+    <div class="row mb-3">
+        <div class="col-md-3">
+            <strong>@Html.DisplayNameFor(model => model.Email)</strong>
+        </div>
+        <div class="col-md-9">
             @Html.DisplayFor(model => model.Email)
-        </dd>
+        </div>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MatKhau)
-        </dt>
-
-        <dd>
+    <div class="row mb-3">
+        <div class="col-md-3">
+            <strong>@Html.DisplayNameFor(model => model.MatKhau)</strong>
+        </div>
+        <div class="col-md-9">
             @Html.DisplayFor(model => model.MatKhau)
-        </dd>
+        </div>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UserType)
-        </dt>
-
-        <dd>
+    <div class="row mb-3">
+        <div class="col-md-3">
+            <strong>@Html.DisplayNameFor(model => model.UserType)</strong>
+        </div>
+        <div class="col-md-9">
             @Html.DisplayFor(model => model.UserType)
-        </dd>
+        </div>
+    </div>
 
-    </dl>
+    <div class="form-actions mt-4">
+        <div class="d-flex justify-content-between">
+            @Html.ActionLink("Chỉnh Sửa", "Edit", new { id = Model.ID_NgMua }, new { @class = "btn btn-warning" })
+            @Html.ActionLink("Quay Lại Danh Sách", "Index", null, new { @class = "btn btn-secondary" })
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_NgMua }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

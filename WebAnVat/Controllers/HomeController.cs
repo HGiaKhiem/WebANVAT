@@ -36,7 +36,7 @@ namespace WebAnVat.Controllers
                     m.GiaBan = int.Parse(rd.GetValue(2).ToString());
                     m.ID_LoaiMonAn = int.Parse(rd.GetValue(3).ToString());
                     m.HinhAnh = rd.GetValue(4).ToString();
-                    m.KhuyenMai = int.Parse(rd.GetValue(5).ToString());
+                    m.KhuyenMai = int.Parse(rd.GetValue(5).ToString()); 
                     var gskgNumber = int.Parse(rd.GetValue(6).ToString());
                     m.GiaSauKhiGiam = gskgNumber;
                     ds.Add(m);

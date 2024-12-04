@@ -147,6 +147,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\MonsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NguoiMuasController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -225,6 +226,11 @@
     <Content Include="Areas\Admin\Views\Mons\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Mons\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\NguoiMuas\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\NguoiMuas\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\NguoiMuas\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\NguoiMuas\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\NguoiMuas\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\shared\_primaryLayout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />

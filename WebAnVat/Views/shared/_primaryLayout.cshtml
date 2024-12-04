@@ -56,7 +56,6 @@
                     }
                     else
                     {
-
                         <div class="navbar-right__user">
                             <i class="fa-regular fa-user"></i>
                             <div class="navbar-right__user-menu">
@@ -64,7 +63,7 @@
                                     <i class="fa-solid fa-id-card"></i>
                                     <span>Thông tin cá nhân</span>
                                 </a>
-                                <a href="@Url.Action("loadCart","Home")" class="user-menu__content">                                  
+                                <a href="@Url.Action("loadCart","Home")" class="user-menu__content">
                                     <i class="fa-solid fa-cart-shopping"></i>
                                     <span>Đơn hàng</span>
                                 </a>
@@ -72,6 +71,13 @@
                                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                                     <span>Đăng xuất</span>
                                 </a>
+                                @if (Session["UserType"] != null && Session["UserType"].ToString() == "Admin")
+                                {
+                                    <a href="@Url.Action("Index", "Mons", new { area = "Admin" })" class="user-menu__content">
+                                        <i class="fa-solid fa-cogs"></i>
+                                        <span>Quản trị</span>
+                                    </a>
+                                }
                             </div>
                         </div>
                     }

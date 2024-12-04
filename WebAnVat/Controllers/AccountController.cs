@@ -46,11 +46,21 @@ namespace WebAnVat.Controllers
                     user.ID_NgMua = int.Parse(rd.GetValue(0).ToString());
                     user.Email = rd.GetValue(3).ToString();
                     user.MatKhau = rd.GetValue(4).ToString();
+                    user.UserType = rd["UserType"].ToString();
                 }
                 if(user != null)
                 {
+                    Session["UserType"] = user.UserType;
                     Session["ID"] = user.ID_NgMua;
-                    return RedirectToAction("Index","Home");
+                    if (user.UserType == "Admin")
+                    {
+                        return RedirectToAction("Index", "Mons", new { area = "Admin" });
+                    }
+                    else 
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                    
                 }
                 else
                 {

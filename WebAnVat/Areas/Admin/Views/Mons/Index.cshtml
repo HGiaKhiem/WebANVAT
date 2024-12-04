@@ -1,0 +1,54 @@
+﻿@model IEnumerable<WebAnVat.Models.Mon>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="mt-4 mb-4">Danh sách món ăn</h2>
+
+<p>
+    <a href="@Url.Action("Create")" class="btn btn-primary">
+        <i class="fa-solid fa-plus"></i> Thêm món mới
+    </a>
+</p>
+
+<table class="table table-bordered table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.TenMon)</th>
+            <th>@Html.DisplayNameFor(model => model.GiaBan)</th>
+            <th>@Html.DisplayNameFor(model => model.HinhAnh)</th>
+            <th>@Html.DisplayNameFor(model => model.KhuyenMai)</th>
+            <th>@Html.DisplayNameFor(model => model.GiaSauKhiGiam)</th>
+            <th>@Html.DisplayNameFor(model => model.LoaiMonAn.TenLoaiMonAn)</th>
+            <th class="text-center">Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.TenMon)</td>
+                <td>@Html.DisplayFor(modelItem => item.GiaBan)</td>
+                <td>
+                    <img src="@Url.Content("~/asset/img/Products/" + item.HinhAnh)" alt="@item.TenMon" class="img-thumbnail" style="max-width: 100px;">
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.KhuyenMai)</td>
+                <td>@Html.DisplayFor(modelItem => item.GiaSauKhiGiam)</td>
+                <td>@Html.DisplayFor(modelItem => item.LoaiMonAn.TenLoaiMonAn)</td>
+                <td class="text-center">
+                    <a href="@Url.Action("Edit", new { id = item.ID_Mon })" class="btn btn-sm btn-warning">
+                        <i class="fa-solid fa-edit"></i> Sửa
+                    </a>
+                    <a href="@Url.Action("Details", new { id = item.ID_Mon })" class="btn btn-sm btn-info">
+                        <i class="fa-solid fa-info-circle"></i> Chi tiết
+                    </a>
+                    <a href="@Url.Action("Delete", new { id = item.ID_Mon })" class="btn btn-sm btn-danger">
+                        <i class="fa-solid fa-trash"></i> Xóa
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

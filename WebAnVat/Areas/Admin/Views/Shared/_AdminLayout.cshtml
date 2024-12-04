@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/asset/css/base.css ">
+    <link rel="stylesheet" href="~/asset/css/style.css">
+    <link rel="stylesheet" href="~/asset/css/detailProducts.css" />
+    <link rel="stylesheet" href="~/asset/css/responsiveIndex.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .topbar {
+            height: 60px;
+            background-color: #343a40;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            justify-content: space-between;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #343a40;
+            color: white;
+            flex-shrink: 0;
+            height: calc(100vh - 60px);
+            position: fixed;
+            top: 60px;
+            left: 0;
+            overflow-y: auto;
+            padding-top: 20px;
+        }
+
+            .sidebar a {
+                color: white;
+                text-decoration: none;
+                padding: 10px 20px;
+                display: block;
+            }
+
+                .sidebar a:hover {
+                    background-color: #495057;
+                }
+
+        .content {
+            margin-left: 200px;
+            margin-top: 60px;
+            padding: 20px;
+            overflow-y: auto;
+            height: calc(100vh - 60px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Topbar -->
+    <div class="header">
+        <div class="header__navbar container-md">
+            <div class="header__navbar-left">
+                <a href="@Url.Action("Index", "Home" , new {area = ""})" class="navbar-left__brand">
+                    <img src="~/asset/img/logo.png" alt="">
+                </a>
+                <form class="navbar-left__search" role="search" method="get" action="@Url.Action("searchByName", "Home")">
+                    <button type="submit" class="navbar-left__search-icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                    <input class="navbar-left__search-input" autocomplete="off" type="search" placeholder="Bạn muốn mua gì ? " aria-label="Search" name="tenmon">
+                </form>
+            </div>
+
+            @*menu của mobile*@
+            <div class="header__mobile-menu">
+                <div class="mobile__icon-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+
+            <div class="header__navbar-right">
+                <div class="navbar-right__method">
+                    <div class="navbar-right__method-img">
+                        <img src="~/asset/img/navbar/delivery.png" alt="">
+                    </div>
+                    <div class="navbar-right__method-text">
+                        Giao hàng tận nơi 24/24
+                    </div>
+                </div>
+
+                <div class="navbar-right__mail">
+                    <i class="fa-regular fa-envelope"></i>
+                </div>
+
+                @if (Session["ID"] == null)
+                {
+                    <a href="@Url.Action("Login","Account")" class="navbar-right__user">
+                        <i class="fa-regular fa-user"></i>
+                    </a>
+                }
+                else
+                {
+
+                    <div class="navbar-right__user">
+                        <i class="fa-regular fa-user"></i>
+                        <div class="navbar-right__user-menu">
+                            <a href="" class="user-menu__content">
+                                <i class="fa-solid fa-id-card"></i>
+                                <span>Thông tin cá nhân</span>
+                            </a>
+                            <a href="@Url.Action("Logout","Account")" class="user-menu__content">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                <span>Đăng xuất</span>
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="header__menu">
+            <ul class="header__menu-list nav justify-content-center">
+                <li class="header__menu-item nav-item">
+                    <a class="header__menu-link nav-link" href="@Url.Action("Index", "Home" , new {area = ""})">Trang chủ</a>
+                </li>
+
+                <li class="header__menu-item nav-item">
+                    <a class="header__menu-link nav-link" href="#">
+                        menu
+                    </a>                     
+                </li>
+
+
+                <li class="header__menu-item nav-item">
+                    <a class="header__menu-link nav-link" href="#">
+                        khuyến mãi
+                    </a>
+                </li>
+
+                <li class="header__menu-item nav-item">
+                    <a class="header__menu-link nav-link" href="@Url.Action("Register","Account")">
+                        Tạo tài khoản
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h5 class="text-center">Navigation</h5>
+        <a href="@Url.Action("Index", "Mons", new { area= "Admin" })">Món</a>
+        <a href="@Url.Action("Index", "NguoiMuas", new { area= "Admin" })">Người Mua</a>
+        <a href="@Url.Action("Index", "DonHangs", new { area= "Admin" })">Đơn Hàng</a>
+        <a href="@Url.Action("Index", "GioHangs", new { area= "Admin" })">Gio Hàng</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        @RenderBody()
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

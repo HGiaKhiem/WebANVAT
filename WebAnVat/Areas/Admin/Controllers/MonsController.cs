@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebAnVat.Models;
+using System.IO;  
+
 
 namespace WebAnVat.Areas.Admin.Controllers
 {
@@ -37,6 +39,7 @@ namespace WebAnVat.Areas.Admin.Controllers
         }
 
         // GET: Admin/Mons/Create
+        // GET: Admin/Mons/Create
         public ActionResult Create()
         {
             ViewBag.ID_LoaiMonAn = new SelectList(db.LoaiMonAns, "ID_LoaiMonAn", "TenLoaiMonAn");
@@ -44,14 +47,21 @@ namespace WebAnVat.Areas.Admin.Controllers
         }
 
         // POST: Admin/Mons/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_Mon,TenMon,GiaBan,ID_LoaiMonAn,HinhAnh,KhuyenMai,GiaSauKhiGiam")] Mon mon)
+        public ActionResult Create([Bind(Include = "ID_Mon,TenMon,GiaBan,ID_LoaiMonAn,HinhAnh,KhuyenMai,GiaSauKhiGiam")] Mon mon, HttpPostedFileBase HinhAnh)
         {
             if (ModelState.IsValid)
             {
+                if (HinhAnh != null && HinhAnh.ContentLength > 0)
+                {
+                    string fileName = Path.GetFileName(HinhAnh.FileName);
+                    string filePath = Path.Combine(Server.MapPath("~/asset/img/Products/"), fileName);
+                    HinhAnh.SaveAs(filePath);
+
+                    mon.HinhAnh = "~/asset/img/Products/" + fileName;
+                }
+
                 db.Mons.Add(mon);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -60,6 +70,7 @@ namespace WebAnVat.Areas.Admin.Controllers
             ViewBag.ID_LoaiMonAn = new SelectList(db.LoaiMonAns, "ID_LoaiMonAn", "TenLoaiMonAn", mon.ID_LoaiMonAn);
             return View(mon);
         }
+
 
         // GET: Admin/Mons/Edit/5
         public ActionResult Edit(int? id)

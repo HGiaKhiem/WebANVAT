@@ -162,14 +162,39 @@ namespace WebAnVat.Controllers
                 // Nếu giỏ hàng chưa có, tạo mới
                 cart = new List<productData>();
             }
-            if(data.ID_LoaiMonAn!=100)
+            if (data.ID_LoaiMonAn != 100) // kh phải là cf thì sẽ có topping 
                 data.Price += GetTotalPrice(data.Topping, data.Size);
+            else
+                data.Price += GetPriceForCaffe(data.Size);
+            data.Price *=(decimal)data.Quantity;
             cart.Add(data); // Thêm sản phẩm vào giỏ hàng
 
             // Lưu giỏ hàng lại vào session
             Session["Cart"] = cart;
             return Json(new { success = true, message = "Sản phẩm đã được thêm vào giỏ hàng" });
 
+        }
+        public decimal GetPriceForCaffe(string size)
+        {
+            decimal sizeSum = 0;
+            string querysize = "select GiaTang from ChiTietSize where Loai_Size=@loaisize";
+            using (SqlConnection conn1 = new SqlConnection(conStr))
+            {
+                conn1.Open();
+                using (SqlCommand cmd = new SqlCommand(querysize, conn1))
+                {
+                    cmd.Parameters.AddWithValue("@loaisize", size);
+                    using (SqlDataReader rd = cmd.ExecuteReader())
+                    {
+                        if (rd.Read())
+                        {
+                            decimal price = int.Parse(rd.GetValue(0).ToString());
+                            sizeSum = price;
+                        }
+                    }
+                }
+            }
+            return sizeSum;
         }
         public decimal GetTotalPrice(List<toppingData> Topping, string size)
         {

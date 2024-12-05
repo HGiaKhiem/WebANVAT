@@ -14,17 +14,8 @@ namespace WebAnVat.Models
     
     public partial class ChiTietSize
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ChiTietSize()
-        {
-            this.CTMA_Size = new HashSet<CTMA_Size>();
-        }
-    
         public int ID_Size { get; set; }
         public string Loai_Size { get; set; }
         public Nullable<decimal> GiaTang { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CTMA_Size> CTMA_Size { get; set; }
     }
 }

@@ -132,6 +132,7 @@ namespace WebAnVat.Controllers
         [HttpPost]
         public ActionResult ForgetPW(NguoiMua model)
         {
+            string s= "";
             if (ModelState.IsValid)  
             {
                 using (SqlConnection conn = new SqlConnection(conStr))
@@ -144,8 +145,9 @@ namespace WebAnVat.Controllers
 
                     if (emailCount == 0)
                     {
+                        s += "1";
                         ViewBag.Message = "Email không tồn tại trong hệ thống.";
-                        return View();  // Nếu không tìm thấy email trong cơ sở dữ liệu
+                       // return View();  // Nếu không tìm thấy email trong cơ sở dữ liệu
                     }
 
                     string resetToken = Guid.NewGuid().ToString();  // Sử dụng GUID làm mã xác thực
@@ -153,10 +155,13 @@ namespace WebAnVat.Controllers
 
                     SendResetPasswordEmail(model.Email, resetLink);
                     ViewBag.Message = "Liên kết khôi phục mật khẩu đã được gửi đến email của bạn.";
+                    s += "2"+ model.Email;
                 }
             }
+            return Content("ok" + s);
 
-            return View(); 
+
+            //  return View(); 
         }
 
         private void SendResetPasswordEmail(string email, string resetLink)
@@ -164,7 +169,7 @@ namespace WebAnVat.Controllers
             try
             {
                 // Tạo đối tượng MailMessage
-                var mailMessage = new MailMessage("your-email@gmail.com", email)
+                var mailMessage = new MailMessage("huyluong985@gmail.com", email)
                 {
                     Subject = "Khôi phục mật khẩu",
                     Body = $"Nhấn vào liên kết sau để khôi phục mật khẩu của bạn: <a href='{resetLink}'>Khôi phục mật khẩu</a>",
@@ -176,7 +181,7 @@ namespace WebAnVat.Controllers
                 {
                     smtpClient.Port = 587; // Cổng SMTP với TLS
                     smtpClient.EnableSsl = true; // Bật SSL/TLS
-                    smtpClient.Credentials = new NetworkCredential("your-email@gmail.com", "your-email-password"); // Thông tin xác thực
+                    smtpClient.Credentials = new NetworkCredential("huyluong985@gmail.com", "jhzk kflp qjio nwld"); // Thông tin xác thực
 
                     // Gửi email
                     smtpClient.Send(mailMessage);

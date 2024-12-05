@@ -146,6 +146,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\DonHangsController.cs" />
     <Compile Include="Areas\Admin\Controllers\MonsController.cs" />
     <Compile Include="Areas\Admin\Controllers\NguoiMuasController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -231,6 +232,10 @@
     <Content Include="Areas\Admin\Views\NguoiMuas\Details.cshtml" />
     <Content Include="Areas\Admin\Views\NguoiMuas\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\NguoiMuas\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\shared\_primaryLayout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />

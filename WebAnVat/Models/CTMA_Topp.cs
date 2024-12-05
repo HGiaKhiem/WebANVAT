@@ -17,8 +17,5 @@ namespace WebAnVat.Models
         public int ID_Mon { get; set; }
         public int ID_Topping { get; set; }
         public Nullable<decimal> giatopp { get; set; }
-    
-        public virtual ChiTietTopping ChiTietTopping { get; set; }
-        public virtual Mon Mon { get; set; }
     }
 }

@@ -18,8 +18,6 @@ namespace WebAnVat.Models
         public Mon()
         {
             this.ChiTietDonHangs = new HashSet<ChiTietDonHang>();
-            this.CTMA_Size = new HashSet<CTMA_Size>();
-            this.CTMA_Topp = new HashSet<CTMA_Topp>();
             this.GioHangs = new HashSet<GioHang>();
         }
     
@@ -33,10 +31,6 @@ namespace WebAnVat.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietDonHang> ChiTietDonHangs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CTMA_Size> CTMA_Size { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CTMA_Topp> CTMA_Topp { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GioHang> GioHangs { get; set; }
         public virtual LoaiMonAn LoaiMonAn { get; set; }

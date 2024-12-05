@@ -46,10 +46,14 @@ namespace WebAnVat.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_NgMua,Ten,Sdt,Email,MatKhau,UserType")] NguoiMua nguoiMua)
+        public ActionResult Create([Bind(Include = "ID_NgMua,Ten,Sdt,Email,MatKhau,")] NguoiMua nguoiMua)
         {
             if (ModelState.IsValid)
             {
+                if(string.IsNullOrEmpty(nguoiMua.UserType))
+                {
+                    nguoiMua.UserType = "NguoiMua";
+                }    
                 db.NguoiMuas.Add(nguoiMua);
                 db.SaveChanges();
                 return RedirectToAction("Index");

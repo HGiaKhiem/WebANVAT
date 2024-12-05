@@ -126,7 +126,7 @@ namespace WebAnVat.Areas.Admin.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Mon mon = db.Mons.Find(id);
-            db.Mons.Remove(mon);
+            db.Mons.Remove(mon);    
             db.SaveChanges();
             return RedirectToAction("Index");
         }

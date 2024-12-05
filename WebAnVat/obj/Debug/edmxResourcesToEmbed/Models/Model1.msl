@@ -4,9 +4,8 @@
     <EntitySetMapping Name="ChiTietDonHangs">
       <EntityTypeMapping TypeName="BanDoAnVatVer2Model.ChiTietDonHang">
         <MappingFragment StoreEntitySet="ChiTietDonHang">
-          <ScalarProperty Name="ChiTietMonAn_JSON" ColumnName="ChiTietMonAn_JSON" />
           <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
-          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="ChiTietMonAn_JSON" ColumnName="ChiTietMonAn_JSON" />
           <ScalarProperty Name="GiaThucTe" ColumnName="GiaThucTe" />
           <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
           <ScalarProperty Name="ID_Mon" ColumnName="ID_Mon" />

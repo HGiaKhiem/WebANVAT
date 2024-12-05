@@ -14,9 +14,8 @@
           <Property Name="ID_Mon" Type="int" Nullable="false" />
           <Property Name="SoLuong" Type="int" Nullable="false" />
           <Property Name="GiaThucTe" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="GhiChu" Type="nvarchar" MaxLength="255" />
-          <Property Name="ThanhTien" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Computed" />
           <Property Name="ChiTietMonAn_JSON" Type="nvarchar(max)" />
+          <Property Name="ThanhTien" Type="decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="ChiTietSize">
           <Key>
@@ -153,54 +152,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CTMA_Size_ChiTietSize">
-          <End Role="ChiTietSize" Type="Self.ChiTietSize" Multiplicity="1" />
-          <End Role="CTMA_Size" Type="Self.CTMA_Size" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ChiTietSize">
-              <PropertyRef Name="ID_Size" />
-            </Principal>
-            <Dependent Role="CTMA_Size">
-              <PropertyRef Name="ID_Size" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CTMA_Size_ID_Mon">
-          <End Role="Mon" Type="Self.Mon" Multiplicity="1" />
-          <End Role="CTMA_Size" Type="Self.CTMA_Size" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Mon">
-              <PropertyRef Name="ID_Mon" />
-            </Principal>
-            <Dependent Role="CTMA_Size">
-              <PropertyRef Name="ID_Mon" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CTMA_Topp_ChiTietTopping">
-          <End Role="ChiTietTopping" Type="Self.ChiTietTopping" Multiplicity="1" />
-          <End Role="CTMA_Topp" Type="Self.CTMA_Topp" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ChiTietTopping">
-              <PropertyRef Name="ID_Topping" />
-            </Principal>
-            <Dependent Role="CTMA_Topp">
-              <PropertyRef Name="ID_Topping" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CTMA_Topp_ID_Mon">
-          <End Role="Mon" Type="Self.Mon" Multiplicity="1" />
-          <End Role="CTMA_Topp" Type="Self.CTMA_Topp" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Mon">
-              <PropertyRef Name="ID_Mon" />
-            </Principal>
-            <Dependent Role="CTMA_Topp">
-              <PropertyRef Name="ID_Mon" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_DH_NgMua">
           <End Role="NguoiMua" Type="Self.NguoiMua" Multiplicity="1" />
           <End Role="DonHang" Type="Self.DonHang" Multiplicity="*" />
@@ -282,22 +233,6 @@
             <End Role="Mon" EntitySet="Mon" />
             <End Role="ChiTietDonHang" EntitySet="ChiTietDonHang" />
           </AssociationSet>
-          <AssociationSet Name="FK_CTMA_Size_ChiTietSize" Association="Self.FK_CTMA_Size_ChiTietSize">
-            <End Role="ChiTietSize" EntitySet="ChiTietSize" />
-            <End Role="CTMA_Size" EntitySet="CTMA_Size" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CTMA_Size_ID_Mon" Association="Self.FK_CTMA_Size_ID_Mon">
-            <End Role="Mon" EntitySet="Mon" />
-            <End Role="CTMA_Size" EntitySet="CTMA_Size" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CTMA_Topp_ChiTietTopping" Association="Self.FK_CTMA_Topp_ChiTietTopping">
-            <End Role="ChiTietTopping" EntitySet="ChiTietTopping" />
-            <End Role="CTMA_Topp" EntitySet="CTMA_Topp" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CTMA_Topp_ID_Mon" Association="Self.FK_CTMA_Topp_ID_Mon">
-            <End Role="Mon" EntitySet="Mon" />
-            <End Role="CTMA_Topp" EntitySet="CTMA_Topp" />
-          </AssociationSet>
           <AssociationSet Name="FK_DH_NgMua" Association="Self.FK_DH_NgMua">
             <End Role="NguoiMua" EntitySet="NguoiMua" />
             <End Role="DonHang" EntitySet="DonHang" />
@@ -344,22 +279,6 @@
             <End Role="Mon" EntitySet="Mons" />
             <End Role="ChiTietDonHang" EntitySet="ChiTietDonHangs" />
           </AssociationSet>
-          <AssociationSet Name="FK_CTMA_Size_ChiTietSize" Association="BanDoAnVatVer2Model.FK_CTMA_Size_ChiTietSize">
-            <End Role="ChiTietSize" EntitySet="ChiTietSizes" />
-            <End Role="CTMA_Size" EntitySet="CTMA_Size" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CTMA_Topp_ChiTietTopping" Association="BanDoAnVatVer2Model.FK_CTMA_Topp_ChiTietTopping">
-            <End Role="ChiTietTopping" EntitySet="ChiTietToppings" />
-            <End Role="CTMA_Topp" EntitySet="CTMA_Topp" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CTMA_Size_ID_Mon" Association="BanDoAnVatVer2Model.FK_CTMA_Size_ID_Mon">
-            <End Role="Mon" EntitySet="Mons" />
-            <End Role="CTMA_Size" EntitySet="CTMA_Size" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CTMA_Topp_ID_Mon" Association="BanDoAnVatVer2Model.FK_CTMA_Topp_ID_Mon">
-            <End Role="Mon" EntitySet="Mons" />
-            <End Role="CTMA_Topp" EntitySet="CTMA_Topp" />
-          </AssociationSet>
           <AssociationSet Name="FK_DH_NgMua" Association="BanDoAnVatVer2Model.FK_DH_NgMua">
             <End Role="NguoiMua" EntitySet="NguoiMuas" />
             <End Role="DonHang" EntitySet="DonHangs" />
@@ -390,9 +309,8 @@
           <Property Name="ID_Mon" Type="Int32" Nullable="false" />
           <Property Name="SoLuong" Type="Int32" Nullable="false" />
           <Property Name="GiaThucTe" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="GhiChu" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="ThanhTien" Type="Decimal" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="ChiTietMonAn_JSON" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ThanhTien" Type="Decimal" Precision="18" Scale="0" />
           <NavigationProperty Name="DonHang" Relationship="BanDoAnVatVer2Model.FK_CTDH_Don" FromRole="ChiTietDonHang" ToRole="DonHang" />
           <NavigationProperty Name="Mon" Relationship="BanDoAnVatVer2Model.FK_CTDH_Mon" FromRole="ChiTietDonHang" ToRole="Mon" />
         </EntityType>
@@ -403,7 +321,6 @@
           <Property Name="ID_Size" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Loai_Size" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GiaTang" Type="Decimal" Precision="18" Scale="0" />
-          <NavigationProperty Name="CTMA_Size" Relationship="BanDoAnVatVer2Model.FK_CTMA_Size_ChiTietSize" FromRole="ChiTietSize" ToRole="CTMA_Size" />
         </EntityType>
         <EntityType Name="ChiTietTopping">
           <Key>
@@ -413,7 +330,6 @@
           <Property Name="Loai_Topping" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Ten_Topping" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GiaTopp" Type="Decimal" Precision="18" Scale="0" />
-          <NavigationProperty Name="CTMA_Topp" Relationship="BanDoAnVatVer2Model.FK_CTMA_Topp_ChiTietTopping" FromRole="ChiTietTopping" ToRole="CTMA_Topp" />
         </EntityType>
         <EntityType Name="CTMA_Size">
           <Key>
@@ -423,8 +339,6 @@
           <Property Name="ID_Mon" Type="Int32" Nullable="false" />
           <Property Name="ID_Size" Type="Int32" Nullable="false" />
           <Property Name="GiaTang" Type="Decimal" Precision="18" Scale="0" />
-          <NavigationProperty Name="ChiTietSize" Relationship="BanDoAnVatVer2Model.FK_CTMA_Size_ChiTietSize" FromRole="CTMA_Size" ToRole="ChiTietSize" />
-          <NavigationProperty Name="Mon" Relationship="BanDoAnVatVer2Model.FK_CTMA_Size_ID_Mon" FromRole="CTMA_Size" ToRole="Mon" />
         </EntityType>
         <EntityType Name="CTMA_Topp">
           <Key>
@@ -434,8 +348,6 @@
           <Property Name="ID_Mon" Type="Int32" Nullable="false" />
           <Property Name="ID_Topping" Type="Int32" Nullable="false" />
           <Property Name="giatopp" Type="Decimal" Precision="18" Scale="0" />
-          <NavigationProperty Name="ChiTietTopping" Relationship="BanDoAnVatVer2Model.FK_CTMA_Topp_ChiTietTopping" FromRole="CTMA_Topp" ToRole="ChiTietTopping" />
-          <NavigationProperty Name="Mon" Relationship="BanDoAnVatVer2Model.FK_CTMA_Topp_ID_Mon" FromRole="CTMA_Topp" ToRole="Mon" />
         </EntityType>
         <EntityType Name="DonHang">
           <Key>
@@ -491,8 +403,6 @@
           <Property Name="KhuyenMai" Type="Int32" />
           <Property Name="GiaSauKhiGiam" Type="Decimal" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Computed" />
           <NavigationProperty Name="ChiTietDonHangs" Relationship="BanDoAnVatVer2Model.FK_CTDH_Mon" FromRole="Mon" ToRole="ChiTietDonHang" />
-          <NavigationProperty Name="CTMA_Size" Relationship="BanDoAnVatVer2Model.FK_CTMA_Size_ID_Mon" FromRole="Mon" ToRole="CTMA_Size" />
-          <NavigationProperty Name="CTMA_Topp" Relationship="BanDoAnVatVer2Model.FK_CTMA_Topp_ID_Mon" FromRole="Mon" ToRole="CTMA_Topp" />
           <NavigationProperty Name="GioHangs" Relationship="BanDoAnVatVer2Model.FK_GioHang_Mon" FromRole="Mon" ToRole="GioHang" />
           <NavigationProperty Name="LoaiMonAn" Relationship="BanDoAnVatVer2Model.FK_Mon_LoaiMon" FromRole="Mon" ToRole="LoaiMonAn" />
         </EntityType>
@@ -547,54 +457,6 @@
               <PropertyRef Name="ID_Mon" />
             </Principal>
             <Dependent Role="ChiTietDonHang">
-              <PropertyRef Name="ID_Mon" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CTMA_Size_ChiTietSize">
-          <End Type="BanDoAnVatVer2Model.ChiTietSize" Role="ChiTietSize" Multiplicity="1" />
-          <End Type="BanDoAnVatVer2Model.CTMA_Size" Role="CTMA_Size" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ChiTietSize">
-              <PropertyRef Name="ID_Size" />
-            </Principal>
-            <Dependent Role="CTMA_Size">
-              <PropertyRef Name="ID_Size" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CTMA_Topp_ChiTietTopping">
-          <End Type="BanDoAnVatVer2Model.ChiTietTopping" Role="ChiTietTopping" Multiplicity="1" />
-          <End Type="BanDoAnVatVer2Model.CTMA_Topp" Role="CTMA_Topp" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ChiTietTopping">
-              <PropertyRef Name="ID_Topping" />
-            </Principal>
-            <Dependent Role="CTMA_Topp">
-              <PropertyRef Name="ID_Topping" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CTMA_Size_ID_Mon">
-          <End Type="BanDoAnVatVer2Model.Mon" Role="Mon" Multiplicity="1" />
-          <End Type="BanDoAnVatVer2Model.CTMA_Size" Role="CTMA_Size" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Mon">
-              <PropertyRef Name="ID_Mon" />
-            </Principal>
-            <Dependent Role="CTMA_Size">
-              <PropertyRef Name="ID_Mon" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CTMA_Topp_ID_Mon">
-          <End Type="BanDoAnVatVer2Model.Mon" Role="Mon" Multiplicity="1" />
-          <End Type="BanDoAnVatVer2Model.CTMA_Topp" Role="CTMA_Topp" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Mon">
-              <PropertyRef Name="ID_Mon" />
-            </Principal>
-            <Dependent Role="CTMA_Topp">
               <PropertyRef Name="ID_Mon" />
             </Dependent>
           </ReferentialConstraint>
@@ -659,7 +521,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -668,9 +530,8 @@
           <EntitySetMapping Name="ChiTietDonHangs">
             <EntityTypeMapping TypeName="BanDoAnVatVer2Model.ChiTietDonHang">
               <MappingFragment StoreEntitySet="ChiTietDonHang">
-                <ScalarProperty Name="ChiTietMonAn_JSON" ColumnName="ChiTietMonAn_JSON" />
                 <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
-                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="ChiTietMonAn_JSON" ColumnName="ChiTietMonAn_JSON" />
                 <ScalarProperty Name="GiaThucTe" ColumnName="GiaThucTe" />
                 <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
                 <ScalarProperty Name="ID_Mon" ColumnName="ID_Mon" />

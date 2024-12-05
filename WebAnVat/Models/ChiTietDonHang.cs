@@ -19,9 +19,8 @@ namespace WebAnVat.Models
         public int ID_Mon { get; set; }
         public int SoLuong { get; set; }
         public Nullable<decimal> GiaThucTe { get; set; }
-        public string GhiChu { get; set; }
-        public Nullable<decimal> ThanhTien { get; set; }
         public string ChiTietMonAn_JSON { get; set; }
+        public Nullable<decimal> ThanhTien { get; set; }
     
         public virtual DonHang DonHang { get; set; }
         public virtual Mon Mon { get; set; }

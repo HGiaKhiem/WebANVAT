@@ -17,8 +17,5 @@ namespace WebAnVat.Models
         public int ID_Mon { get; set; }
         public int ID_Size { get; set; }
         public Nullable<decimal> GiaTang { get; set; }
-    
-        public virtual ChiTietSize ChiTietSize { get; set; }
-        public virtual Mon Mon { get; set; }
     }
 }

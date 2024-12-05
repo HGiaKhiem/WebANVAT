@@ -4,8 +4,8 @@
     Layout = "~/Views/shared/_primaryLayout.cshtml";
 }
 
-@using WebAnVat.Models
-@model List<productData>
+    @using WebAnVat.Models
+    @model List<productData>
 
 <div class="body container">
     <div class="cart">
@@ -37,10 +37,10 @@
                             </div>
                         </div>
                         <div class="cart__wrap-btns">
-                            <a href="" class="cart__btn-edit" title="Sửa">
-                                <i class="fa-solid fa-pen"></i>
-                            </a>
-                            <a href="" class="cart__btn-delete">
+                            @*<a href="" class="cart__btn-edit" title="Sửa">
+            <i class="fa-solid fa-pen"></i>
+        </a>*@
+                            <a href="@Url.Action("deleteItem", "Cart", new {id_mon=@i.ID_Mon})" class="cart__btn-delete">
                                 <i class="fa-solid fa-trash-can" title="Xóa"></i>
                             </a>
                         </div>
@@ -71,10 +71,10 @@
                             </div>
                         </div>
                         <div class="cart__wrap-btns">
-                            <a href="" class="cart__btn-edit" title="Sửa">
-                                <i class="fa-solid fa-pen"></i>
-                            </a>
-                            <a href="" class="cart__btn-delete">
+                            @*<a href="" class="cart__btn-edit" title="Sửa">
+            <i class="fa-solid fa-pen"></i>
+        </a>*@
+                            <a href="@Url.Action("deleteItem", "Cart", new {id_mon=@i.ID_Mon})" class="cart__btn-delete">
                                 <i class="fa-solid fa-trash-can" title="Xóa"></i>
                             </a>
                         </div>
@@ -104,10 +104,10 @@
                             </div>
                         </div>
                         <div class="cart__wrap-btns">
-                            <a href="" class="cart__btn-edit" title="Sửa">
+                            @*<a href="" class="cart__btn-edit" title="Sửa">
                                 <i class="fa-solid fa-pen"></i>
-                            </a>
-                            <a href="" class="cart__btn-delete">
+                            </a>*@
+                            <a href="@Url.Action("deleteItem", "Cart", new {id_mon=@i.ID_Mon})" class="cart__btn-delete">
                                 <i class="fa-solid fa-trash-can" title="Xóa"></i>
                             </a>
                         </div>

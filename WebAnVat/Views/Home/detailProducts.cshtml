@@ -26,12 +26,12 @@
                     <span class="wrapDetail__text">ID:</span><span class="wrapDetail__num">@Model.ID_Mon</span>
                 </div>
                 <div class="wrapDetail__wrapPriceQuantity">
-                    <div class="wrapDetail__price">@Model.GiaBan</div>
+                    <div class="wrapDetail__price">@Model.GiaSauKhiGiam</div>
                     <div class="counter" id="counter1">
                         <div class="btnCount btnMinus">
                             <i class="fa-solid fa-minus"></i>
                         </div>
-                        <div class="number">0</div>
+                        <div class="number">1</div>
                         <div class="btnCount btnPlus">
                             <i class="fa-solid fa-plus"></i>
                         </div>
@@ -182,7 +182,7 @@
         </div>
     </div>
 </div>
-<div id="jsonPreview"></div>
+@*<div id="jsonPreview"></div>*@
 
 
 <!-- Thêm jQuery trước các script khác sử dụng jQuery -->
@@ -215,8 +215,8 @@
 
         const jsonProductData = JSON.stringify(productData);
         console.log(jsonProductData)
-        //
-        document.getElementById("jsonPreview").textContent = jsonProductData;
+        ////
+        //document.getElementById("jsonPreview").textContent = jsonProductData;
 
         fetch('@Url.Action("addToCart", "Home")', {
             method: 'POST',
